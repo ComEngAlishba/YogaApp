@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace = "com.example.adminyogaapp"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.adminyogaapp"
         minSdk = 17
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
