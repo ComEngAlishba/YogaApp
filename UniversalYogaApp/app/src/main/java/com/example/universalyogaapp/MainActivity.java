@@ -14,12 +14,11 @@ import android.widget.Toast;
 
 //import android.app.TimePickerDialog;
 //import android.widget.TimePicker;
-//import android.widget.TextView;
+//import android.widget.TextView; implements AdapterView.OnItemSelectedListener
 
 
 
-
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class MainActivity extends AppCompatActivity {
 
 
     //All buttons
@@ -53,23 +52,23 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spType = findViewById(R.id.spinnerType);
         etDescription = findViewById(R.id.editTextDescription);
 
+        // Get the string array from strings.xml
+        String[] days = getResources().getStringArray(R.array.nameOfDays);
+        String[] time = getResources().getStringArray(R.array.time);
+        String[] type = getResources().getStringArray(R.array.typeOfClass);
 
-        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.nameOfDays,android.R.layout.simple_spinner_item);
+        // Create an ArrayAdapter and set it to the spinner
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, days);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spDays.setAdapter(adapter);
 
-        spDays.setOnItemClickListener((AdapterView.OnItemClickListener) this);
-
-
-
-        ArrayAdapter<CharSequence> adapter1=ArrayAdapter.createFromResource(this,R.array.time,android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, time);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spTime.setAdapter(adapter1);
 
-        ArrayAdapter<CharSequence> adapter2=ArrayAdapter.createFromResource(this,R.array.typeOfClass,android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, type);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spType.setAdapter(adapter2);
-
 
 
 
@@ -79,7 +78,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View v) {
 
-
+                String selectedDays = spDays.getSelectedItem().toString();
+                String selectedTime = spTime.getSelectedItem().toString();
+                String selectedType = spType.getSelectedItem().toString();
                 String capacity = etCapacity.getText().toString();
                 String duration = etDuration.getText().toString();
                 String price = etPrice.getText().toString();
@@ -92,13 +93,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 if (check == true) {
 
                     Intent intent = new Intent(MainActivity.this, CourseConfirmation.class);
-//                    intent.putExtra("DayOfTheWeek", days);
-//                    intent.putExtra("Time", time);
-                    intent.putExtra("Capacity","Capacity Of the class: " + capacity);
-                    intent.putExtra("Duration","Capacity Of the class: " + duration);
-                    intent.putExtra("Price","Capacity Of the class: " + price);
-//                    intent.putExtra("Type", type);
-                    intent.putExtra("Description","Capacity Of the class: " + description);
+                    intent.putExtra("Days","Selected Days: " + selectedDays);
+                    intent.putExtra("Time","Selected Time: " + selectedTime);
+                    intent.putExtra("Capacity","Capacity of the class: " + capacity);
+                    intent.putExtra("Duration","Duration of the class: " + duration);
+                    intent.putExtra("Price","Price of the class: " + price);
+                    intent.putExtra("Type","Selected Type: " + selectedType);
+                    intent.putExtra("Description","Description of the class: " + description);
                     startActivity(intent);
 
                     Toast.makeText(MainActivity.this, "Hurray Check  The Information", Toast.LENGTH_SHORT).show();
@@ -188,17 +189,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 }
 
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(MainActivity.this, "You selected"+parent.getItemAtPosition(position), Toast.LENGTH_SHORT).show();
-
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-        Toast.makeText(MainActivity.this, "You selected nothing", Toast.LENGTH_SHORT).show();
-    }
+//    @Override
+//    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//        Toast.makeText(MainActivity.this, "You selected"+parent.getItemAtPosition(position), Toast.LENGTH_SHORT).show();
+//
+//
+//    }
+//
+//    @Override
+//    public void onNothingSelected(AdapterView<?> parent) {
+//        Toast.makeText(MainActivity.this, "You selected nothing", Toast.LENGTH_SHORT).show();
+//    }
 }
 
 
