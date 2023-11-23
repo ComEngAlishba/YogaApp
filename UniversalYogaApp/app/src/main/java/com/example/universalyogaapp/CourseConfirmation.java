@@ -33,7 +33,7 @@ public class CourseConfirmation extends AppCompatActivity {
         bEdit = findViewById(R.id.buttonEdit);
         bSubmit = findViewById(R.id.buttonSubmit);
 
-        String txtDays = getIntent().getStringExtra("DayOfTheWeek");
+        String txtDays = getIntent().getStringExtra("Days");
         String txtTime = getIntent().getStringExtra("Time");
         String txtCapacity = getIntent().getStringExtra("Capacity");
         String txtDuration = getIntent().getStringExtra("Duration");
