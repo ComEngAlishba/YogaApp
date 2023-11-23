@@ -3,5 +3,13 @@
     <color name="black">#FF000000</color>
     <color name="red">#FF0000</color>
     <color name="green">#008000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="purple">#FF673AB7</color>
+
+    <!--Colors to be used in the project-->
+    <color name="colorPrimary">#87C4FF</color>
+    <color name="colorPrimaryDark">#39A7FF</color>
+    <color name="colorAccent">#E0F4FF</color>
+    <color name="beige">#FFEED9</color>
+    <color name="white">#FFFFFF</color>
+
 </resources>
