@@ -5,16 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.os.Bundle;
 import android.content.Intent;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-//import android.app.TimePickerDialog;
-//import android.widget.TimePicker;
-//import android.widget.TextView; implements AdapterView.OnItemSelectedListener
 
 
 
@@ -41,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         // register buttons with their proper IDs.
         bAdd = findViewById(R.id.buttonAdd);
         bExit = findViewById(R.id.buttonExit);
-//        bTime = findViewById(R.id.buttonTime);
+
 
         // register all the EditText fields with their IDs.
         spDays = findViewById(R.id.spinnerDays);
@@ -71,8 +67,6 @@ public class MainActivity extends AppCompatActivity {
         spType.setAdapter(adapter2);
 
 
-
-
         // handle the PROCEED button
         bAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,13 +87,13 @@ public class MainActivity extends AppCompatActivity {
                 if (check == true) {
 
                     Intent intent = new Intent(MainActivity.this, CourseConfirmation.class);
-                    intent.putExtra("Days","Selected Days: " + selectedDays);
-                    intent.putExtra("Time","Selected Time: " + selectedTime);
-                    intent.putExtra("Capacity","Capacity of the class: " + capacity);
-                    intent.putExtra("Duration","Duration of the class: " + duration);
-                    intent.putExtra("Price","Price of the class: " + price);
-                    intent.putExtra("Type","Selected Type: " + selectedType);
-                    intent.putExtra("Description","Description of the class: " + description);
+                    intent.putExtra("Days", "Selected Days: " + selectedDays);
+                    intent.putExtra("Time", "Selected Time: " + selectedTime);
+                    intent.putExtra("Capacity", "Capacity of the class: " + capacity);
+                    intent.putExtra("Duration", "Duration of the class: " + duration);
+                    intent.putExtra("Price", "Price of the class: " + price);
+                    intent.putExtra("Type", "Selected Type: " + selectedType);
+                    intent.putExtra("Description", "Description of the class: " + description);
                     startActivity(intent);
 
                     Toast.makeText(MainActivity.this, "Hurray Check  The Information", Toast.LENGTH_SHORT).show();
@@ -110,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
-            private Boolean validateInfo(String capacity, String duration, String price,  String description) {
+            private Boolean validateInfo(String capacity, String duration, String price, String description) {
 //                if (days.length() == 0) {
 //                    etDays.requestFocus();
 //                    etDays.setError("This field is required");
@@ -147,60 +141,12 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-
-//        bTime.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                openTimePicker(); //Open time picker dialog
-//            }
-//        });
-//     }
-//    private void openDatePicker(){
-//        DatePickerDialog datePickerDialog = new DatePickerDialog(this, R.style.DialogTheme , new DatePickerDialog.OnDateSetListener() {
-//            @Override
-//            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-//
-//                //Showing the picked value in the textView
-//                txView.setText(String.valueOf(year)+ "."+String.valueOf(month)+ "."+String.valueOf(day));
-//
-//            }
-//        }, 2023, 01, 20);
-//
-//        datePickerDialog.show();
-
-//    private void openTimePicker() {
-//
-//        TimePickerDialog timePickerDialog = new TimePickerDialog(this,R.style.DialogTheme, new TimePickerDialog.OnTimeSetListener() {
-//            @Override
-//            public void onTimeSet(TimePicker timePicker, int hour, int minute) {
-//
-//
-//                //Showing the picked value in the textView
-//                txView.setText(String.valueOf(hour) + ":" + String.valueOf(minute));
-//
-//            }
-//        }, 15, 30, false);
-//
-//        timePickerDialog.show();
-//    }
-
-
-
+    }
 }
 
 
-//    @Override
-//    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//        Toast.makeText(MainActivity.this, "You selected"+parent.getItemAtPosition(position), Toast.LENGTH_SHORT).show();
-//
-//
-//    }
-//
-//    @Override
-//    public void onNothingSelected(AdapterView<?> parent) {
-//        Toast.makeText(MainActivity.this, "You selected nothing", Toast.LENGTH_SHORT).show();
-//    }
-}
+
+
 
 
 
