@@ -18,8 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     //All buttons
-    Button bAdd, bExit;
-
+    Button bAdd;
     // All required text fields
     Spinner spDays, spTime, spType;
     EditText  etCapacity, etDuration, etPrice,etDescription;
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         // register buttons with their proper IDs.
         bAdd = findViewById(R.id.buttonAdd);
-        bExit = findViewById(R.id.buttonExit);
+
 
 
         // register all the EditText fields with their IDs.
@@ -46,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         etDuration = findViewById(R.id.editTextDuration);
         etPrice = findViewById(R.id.editTextPrice);
         spType = findViewById(R.id.spinnerType);
+
         etDescription = findViewById(R.id.editTextDescription);
 
         // Get the string array from strings.xml
@@ -71,10 +71,9 @@ public class MainActivity extends AppCompatActivity {
         bAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String selectedDays = spDays.getSelectedItem().toString();
-                String selectedTime = spTime.getSelectedItem().toString();
-                String selectedType = spType.getSelectedItem().toString();
+//                String selectedDays = spDays.getSelectedItem().toString();
+//                String selectedTime = spTime.getSelectedItem().toString();
+//                String selectedType = spType.getSelectedItem().toString();
                 String capacity = etCapacity.getText().toString();
                 String duration = etDuration.getText().toString();
                 String price = etPrice.getText().toString();
@@ -86,17 +85,17 @@ public class MainActivity extends AppCompatActivity {
 
                 if (check == true) {
 
-                    Intent intent = new Intent(MainActivity.this, CourseConfirmation.class);
-                    intent.putExtra("Days", "Selected Days: " + selectedDays);
-                    intent.putExtra("Time", "Selected Time: " + selectedTime);
-                    intent.putExtra("Capacity", "Capacity of the class: " + capacity);
-                    intent.putExtra("Duration", "Duration of the class: " + duration);
-                    intent.putExtra("Price", "Price of the class: " + price);
-                    intent.putExtra("Type", "Selected Type: " + selectedType);
-                    intent.putExtra("Description", "Description of the class: " + description);
+                    Intent intent = new Intent(MainActivity.this,MainActivity.class);
+//                    intent.putExtra("Days", "Selected Days: " + selectedDays);
+//                    intent.putExtra("Time", "Selected Time: " + selectedTime);
+//                    intent.putExtra("Capacity", "Capacity of the class: " + capacity);
+//                    intent.putExtra("Duration", "Duration of the class: " + duration);
+//                    intent.putExtra("Price", "Price of the class: " + price);
+//                    intent.putExtra("Type", "Selected Type: " + selectedType);
+//                    intent.putExtra("Description", "Description of the class: " + description);
                     startActivity(intent);
 
-                    Toast.makeText(MainActivity.this, "Hurray Check  The Information", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Hurray You Successfully Added The Course.", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(MainActivity.this, "Sorry Check  The Information", Toast.LENGTH_SHORT).show();
                 }
@@ -105,14 +104,6 @@ public class MainActivity extends AppCompatActivity {
 
 
             private Boolean validateInfo(String capacity, String duration, String price, String description) {
-//                if (days.length() == 0) {
-//                    etDays.requestFocus();
-//                    etDays.setError("This field is required");
-//                    return false;
-//                } else if (time.length() == 0) {
-//                    etTime.requestFocus();
-//                    etTime.setError("This field is required");
-//                    return false; } else
                 if (capacity.length() == 0) {
                     etCapacity.requestFocus();
                     etCapacity.setError("Please provide capacity of the class");
@@ -125,16 +116,7 @@ public class MainActivity extends AppCompatActivity {
                     etPrice.requestFocus();
                     etPrice.setError("Please provide price of the class");
                     return false;
-//                } else if (type.length() == 0) {
-//                    etType.requestFocus();
-//                    etType.setError("This field is required");
-//                    return false;
                 }
-//                  else if (description.length() == 0) {
-//                  etDescription.requestFocus();
-//                  etDescription.setError("This field is required");
-//                  return false;
-//                 }
                 else {
                     return true;
                 }

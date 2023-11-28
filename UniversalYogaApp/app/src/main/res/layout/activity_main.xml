@@ -3,228 +3,198 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textAdmin"
-        android:layout_width="313dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="72dp"
-        android:fontFamily="monospace"
-        android:text="Hello Admin !!! "
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textEnterDetails"
-        android:layout_width="304dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="124dp"
-        android:layout_marginEnd="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:fontFamily="cursive"
-        android:text="Please enter the details of a course."
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textCapacity"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="324dp"
-        android:layout_marginEnd="292dp"
-        android:text="Capacity"
-        android:textColor="@color/purple"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textDuration"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="404dp"
-        android:text="Duration"
-        android:textColor="@color/purple"
+        android:text="Please Enter The Details Of A Course."
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="472dp"
-        android:text="Price Per Class"
-        android:textColor="@color/purple"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginBottom="136dp"
-        android:text="Description"
-        android:textColor="@color/purple"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textDays"
-        android:layout_width="151dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="172dp"
-        android:fontFamily="sans-serif-light"
-        android:text="Select Day:"
-        android:textColor="@color/purple"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textTime"
-        android:layout_width="151dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="256dp"
-        android:fontFamily="sans-serif-light"
-        android:text="Select Time:"
-        android:textColor="@color/purple"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <!--    <EditText-->
-    <!--        android:id="@+id/editTextTime"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="48dp"-->
-    <!--        android:layout_marginTop="264dp"-->
-    <!--        android:layout_marginEnd="112dp"-->
-    <!--        android:ems="10"-->
-    <!--        android:hint="10:00"-->
-    <!--        android:inputType="time"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-    <Button
-        android:id="@+id/buttonAdd"
-        android:layout_width="184dp"
-        android:layout_height="57dp"
-        android:layout_marginEnd="108dp"
-        android:layout_marginBottom="64dp"
-        android:text="Add Course"
+    <LinearLayout
+        android:layout_width="334dp"
+        android:layout_height="671dp"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:rippleColor="#4CAF50" />
-
-    <Button
-        android:id="@+id/buttonExit"
-        android:layout_width="198dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginBottom="16dp"
-        android:text="Show All Courses"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.618"
         app:layout_constraintStart_toStartOf="parent"
-        app:rippleColor="#127CAC" />
+        app:layout_constraintTop_toBottomOf="@+id/textEnterDetails"
+        app:layout_constraintVertical_bias="0.719">
 
-    <EditText
-        android:id="@+id/editTextCapacity"
-        android:layout_width="272dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="348dp"
-        android:layout_marginEnd="72dp"
-        android:ems="10"
-        android:hint="12"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextDuration"
-        android:layout_width="273dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="420dp"
-        android:layout_marginEnd="72dp"
-        android:ems="10"
-        android:hint="60 min"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textdays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Select Day"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/textType"
-        android:layout_width="159dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="540dp"
-        android:text="Choose Type "
-        android:textColor="@color/purple"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Spinner
+            android:id="@+id/spinnerDays"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/cardview_light_background"
+            android:entries="@array/time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginBottom="116dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="I like to do yoga."
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <TextView
+            android:id="@+id/textTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Select Time"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
-    <Spinner
-        android:id="@+id/spinnerType"
-        android:layout_width="256dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="540dp"
-        android:layout_marginEnd="8dp"
-        android:entries="@array/typeOfClass"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <Spinner
-        android:id="@+id/spinnerDays"
-        android:layout_width="289dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="204dp"
-        android:layout_marginEnd="56dp"
-        android:entries="@array/nameOfDays"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Spinner
+            android:id="@+id/spinnerTime"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:entries="@array/nameOfDays"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Spinner
-        android:id="@+id/spinnerTime"
-        android:layout_width="289dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="272dp"
-        android:layout_marginEnd="56dp"
-        android:entries="@array/time"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextPrice"
-        android:layout_width="298dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="492dp"
-        android:layout_marginEnd="44dp"
-        android:ems="10"
-        android:hint="10"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Capacity"
+            android:textColorHint="@color/black"
+            app:boxStrokeColor="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextCapacity"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:fontFamily="sans-serif-medium"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Duration"
+            android:textColorHint="@color/black"
+            app:boxStrokeColor="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextDuration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Price"
+            android:textColorHint="@color/black"
+            app:boxStrokeColor="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Select Type"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/spinnerType"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:entries="@array/nameOfDays" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Description"
+            android:textColorHint="@color/black"
+            app:boxStrokeColor="@color/black">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonAdd"
+            android:layout_width="287dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:padding="12dp"
+            android:text="Add Course"
+            android:textSize="15sp"
+            app:cornerRadius="10dp" />
+
+    </LinearLayout>
+
+
+
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
