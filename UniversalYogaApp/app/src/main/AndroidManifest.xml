@@ -13,12 +13,17 @@
         android:theme="@style/Theme.UniversalYogaApp"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".ClassInstance"
             android:exported="false" />
         <activity
-            android:name=".ClassInstance"
+            android:name=".MainActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".HomePage"/>
+        <activity
+            android:name=".Schedule"
+            android:exported="false"
+            android:label="@string/add_schedule"
+            android:parentActivityName=".Schedule" />
         <activity
             android:name=".CourseConfirmation"
             android:exported="false" />

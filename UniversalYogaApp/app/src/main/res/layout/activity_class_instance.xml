@@ -31,7 +31,7 @@
         app:layout_constraintVertical_bias="0.265" />
 
     <EditText
-        android:id="@+id/editTextDate"
+        android:id="@+id/scheduleDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -61,7 +61,7 @@
         app:layout_constraintVertical_bias="0.414" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/scheduleTeacher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -90,7 +90,7 @@
         app:layout_constraintVertical_bias="0.542" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/comment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autofillHints="Everything's fine"
@@ -107,7 +107,7 @@
         app:layout_constraintVertical_bias="0.545" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/courseBox"
         android:layout_width="206dp"
         android:layout_height="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -118,7 +118,7 @@
         app:layout_constraintVertical_bias="0.114" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/addSchedule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add"

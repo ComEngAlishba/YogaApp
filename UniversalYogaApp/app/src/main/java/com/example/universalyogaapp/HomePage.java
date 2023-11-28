@@ -38,7 +38,7 @@ public class HomePage extends AppCompatActivity {
         addSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomePage.this, ClassInstance.class);
+                Intent intent = new Intent(HomePage.this, Schedule.class);
                 startActivity(intent);
             }
         });

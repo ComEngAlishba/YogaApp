@@ -7,9 +7,9 @@
 
     <!--Colors to be used in the project-->
     <color name="colorPrimary">#87C4FF</color>
-    <color name="colorPrimaryDark">#39A7FF</color>
+    <color name="colorPrimaryDark">#39A7FF</color> //button
     <color name="colorAccent">#E0F4FF</color>
-    <color name="beige">#FFEED9</color>
+    <color name="beige">#FFEED9</color> //beige
     <color name="white">#FFFFFF</color>
 
     <color name="purple_7">#FFEED9</color>
