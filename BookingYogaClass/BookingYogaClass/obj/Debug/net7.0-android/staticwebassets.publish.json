@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AAP3yafncWbLQl9IUxtjxPjROQKJpa3ZTs61RWbLIoM=",
+  "Hash": "wC9BjjHGFt6F5CfwpBGiqR9HTHwDmMBMBoP3gH8xXGk=",
   "Source": "BookingYogaClass",
   "BasePath": "/",
   "Mode": "Root",
@@ -10,17 +10,17 @@
     {
       "Name": "BookingYogaClass\\wwwroot",
       "Source": "BookingYogaClass",
-      "ContentRoot": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
       "BasePath": "/",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\obj\\Debug\\net7.0-android\\scopedcss\\bundle\\BookingYogaClass.styles.css",
+      "Identity": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\obj\\Debug\\net7.0-android\\scopedcss\\bundle\\BookingYogaClass.styles.css",
       "SourceId": "BookingYogaClass",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\obj\\Debug\\net7.0-android\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\obj\\Debug\\net7.0-android\\scopedcss\\bundle\\",
       "BasePath": "/",
       "RelativePath": "BookingYogaClass.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\obj\\Debug\\net7.0-android\\scopedcss\\bundle\\BookingYogaClass.styles.css"
+      "OriginalItemSpec": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\obj\\Debug\\net7.0-android\\scopedcss\\bundle\\BookingYogaClass.styles.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\obj\\Debug\\net7.0-android\\scopedcss\\projectbundle\\BookingYogaClass.bundle.scp.css",
+      "Identity": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\obj\\Debug\\net7.0-android\\scopedcss\\projectbundle\\BookingYogaClass.bundle.scp.css",
       "SourceId": "BookingYogaClass",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\obj\\Debug\\net7.0-android\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\obj\\Debug\\net7.0-android\\scopedcss\\projectbundle\\",
       "BasePath": "/",
       "RelativePath": "BookingYogaClass.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\obj\\Debug\\net7.0-android\\scopedcss\\projectbundle\\BookingYogaClass.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\obj\\Debug\\net7.0-android\\scopedcss\\projectbundle\\BookingYogaClass.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\app.css",
+      "Identity": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\app.css",
       "SourceId": "BookingYogaClass",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
       "BasePath": "/",
       "RelativePath": "css/app.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\css\\app.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "BookingYogaClass",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
       "BasePath": "/",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "BookingYogaClass",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
       "BasePath": "/",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "BookingYogaClass",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
       "BasePath": "/",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "BookingYogaClass",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
       "BasePath": "/",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "BookingYogaClass",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
       "BasePath": "/",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "BookingYogaClass",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
       "BasePath": "/",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "BookingYogaClass",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
       "BasePath": "/",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "BookingYogaClass",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
       "BasePath": "/",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "BookingYogaClass",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
       "BasePath": "/",
       "RelativePath": "css/open-iconic/FONT-LICENSE",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "BookingYogaClass",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
       "BasePath": "/",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "BookingYogaClass",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
       "BasePath": "/",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\favicon.ico",
       "SourceId": "BookingYogaClass",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
       "BasePath": "/",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\index.html",
+      "Identity": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\index.html",
       "SourceId": "BookingYogaClass",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\",
       "BasePath": "/",
       "RelativePath": "index.html",
       "AssetKind": "All",
