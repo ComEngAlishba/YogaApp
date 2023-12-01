@@ -1,7 +1,38 @@
 ﻿@page "/"
+@inject NavigationManager Navigation
+<div class="content-container">
+    <h1>Welcome to the Yoga Class Booking App</h1>
+    <p>Book your favorite yoga classes and start your journey to a healthier lifestyle.</p>
 
-<h1>Dashboard</h1>
+    <div class="button-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <form>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" @bind="username" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" @bind="email" />
+                        </div>
+                        <button type="button" class="btn btn-primary" @onclick="SignIn">Login Button</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-Booking Yoga Class
+@code {
+    private string username;
+    private string email;
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    public void SignIn()
+    {
+        // Add your login logic here
+        // For example, navigate to another page after login
+        Navigation.NavigateTo("/book-classes/" + username +"/" + email);
+    }
+}

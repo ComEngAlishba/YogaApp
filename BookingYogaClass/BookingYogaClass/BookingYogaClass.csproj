@@ -58,4 +58,9 @@
       <Folder Include="Controllers\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <MauiImage Include="wwwroot\Pictures\image_one.jpg" />
+      <MauiImage Include="wwwroot\Pictures\image_one.png" />
+    </ItemGroup>
+
 </Project>

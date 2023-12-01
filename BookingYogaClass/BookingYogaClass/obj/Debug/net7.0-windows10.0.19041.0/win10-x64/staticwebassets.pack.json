@@ -5,6 +5,30 @@
       "PackagePath": "staticwebassets\\BookingYogaClass.styles.css"
     },
     {
+      "Id": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\Pictures\\image_five.jpg",
+      "PackagePath": "staticwebassets\\Pictures\\image_five.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\Pictures\\image_four.jpg",
+      "PackagePath": "staticwebassets\\Pictures\\image_four.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\Pictures\\image_one.jpg",
+      "PackagePath": "staticwebassets\\Pictures\\image_one.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\Pictures\\image_one.png",
+      "PackagePath": "staticwebassets\\Pictures\\image_one.png"
+    },
+    {
+      "Id": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\Pictures\\image_three.jpg",
+      "PackagePath": "staticwebassets\\Pictures\\image_three.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\Pictures\\image_two.jpg",
+      "PackagePath": "staticwebassets\\Pictures\\image_two.jpg"
+    },
+    {
       "Id": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },
