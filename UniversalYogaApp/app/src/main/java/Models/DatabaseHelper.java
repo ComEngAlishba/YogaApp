@@ -5,14 +5,19 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteQueryBuilder;
+import android.util.Log;
 import android.widget.Toast;
+
+import com.example.universalyogaapp.Courses;
+
 import java.util.ArrayList;
 import java.util.List;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Database information
     private static final String DATABASE_NAME = "YourDatabaseName";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     // Table name
     private static final String TABLE_COURSE = "Course";
@@ -51,7 +56,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Create Course table
         String createCourseTable = "CREATE TABLE " + TABLE_COURSE + "("
                 + KEY_COURSE_ID + " INTEGER PRIMARY KEY,"
-                + KEY_COURSE_NAME + " TEXT NOT NULL,"
+                + KEY_COURSE_NAME + " TEXT,"
                 + KEY_INSTRUCTOR_NAME + " TEXT,"
                 + KEY_DEPARTMENT + " TEXT,"
                 + KEY_START_DATE + " DATE,"
@@ -66,8 +71,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + KEY_DESCRIPTION + " TEXT,"
                 + KEY_LOCATION + " TEXT,"
                 + KEY_DIFFICULTY_LEVEL + " TEXT,"
-                + KEY_PREREQUISITE_COURSE + " TEXT,"
-                + "CONSTRAINT unique_course_name UNIQUE (" + KEY_COURSE_NAME + ")"
+                + KEY_PREREQUISITE_COURSE + " TEXT "
                 + ")";
         db.execSQL(createCourseTable);
         // Create ClassSchedule table
@@ -108,7 +112,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // Inserting Row
         long result = db.insert(TABLE_COURSE, null, values);
+
+        // Log the SQL query
+        String sqlQuery = SQLiteQueryBuilder.buildQueryString(
+                false, TABLE_COURSE, null, null, null, null, null, null);
+        Log.d("DatabaseHelper", "SQL Query: " + sqlQuery);
+
         db.close(); // Closing database connection
+
         if (result != -1) {
             showToast(context, "Course added successfully");
         } else {
@@ -197,6 +208,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return courseList;
     }
+
     // Function to add a class schedule
     public void addClassSchedule(ClassSchedule classSchedule, Context context) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -217,13 +229,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             showToast(context, "Failed to add class schedule");
         }
     }
+    //code trial
+    public boolean updateClassSchedule(String id, String date, String teacherName, String comment) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_SCHEDULE_DATE, date);
+        values.put(KEY_SCHEDULE_TEACHER_NAME, teacherName);
+        values.put(KEY_SCHEDULE_ADDITIONAL_COMMENTS, comment);
 
+        long result = db.update(TABLE_SCHEDULE, values, KEY_SCHEDULE_ID + " = ?", new String[]{id});
+
+        boolean isUpdated = result > 0;
+        db.close();
+        return isUpdated;
+    }
+
+
+    // I have used another code for this
     // Function to update a class schedule
-    public void updateClassSchedule(ClassSchedule classSchedule, Context context) {
+  /*  public void updateClassSchedule(ClassSchedule classSchedule, Context context) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_COURSE_ID, classSchedule.getCourseId());
+        values.put(KEY_SCHEDULE_ID, classSchedule.getCourseId());
         values.put(KEY_SCHEDULE_DATE, classSchedule.getDate());
         values.put(KEY_SCHEDULE_TEACHER_NAME, classSchedule.getTeacherName());
         values.put(KEY_SCHEDULE_ADDITIONAL_COMMENTS, classSchedule.getAdditionalComments());
@@ -239,7 +267,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } else {
             showToast(context, "Failed to update class schedule");
         }
-    }
+    }*/
 
     // Function to delete a class schedule
     public void deleteClassSchedule(int scheduleId, Context context) {
@@ -288,4 +316,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private void showToast(Context context, String message) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
+
+    public Cursor readData(){
+        String query = "SELECT * FROM " + TABLE_SCHEDULE;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+    //for deleting data from schedule table
+    public void deleteData(String row_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_SCHEDULE, KEY_SCHEDULE_ID + " = ?", new String[]{row_id});
+
+        if (result > 0) {
+            // Deletion successful
+            Log.d("DatabaseHelper", "Data deleted successfully");
+        } else {
+            // Deletion failed
+            Log.e("DatabaseHelper", "Failed to delete data");
+        }
+
+        db.close();
+    }
+
+    public Cursor readCourses(){
+        String query = "SELECT * FROM " + TABLE_COURSE;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+
 }
