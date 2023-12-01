@@ -6,7 +6,7 @@
 
     <div class="button-container">
         <div class="container">
-            <div class="row">
+            <div class="row ">
                 <div class="col-md-6 offset-md-3">
                     <form>
                         <div class="mb-3">
@@ -17,7 +17,9 @@
                             <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="email" @bind="email" />
                         </div>
-                        <button type="button" class="btn btn-primary align-middle" @onclick="SignIn">Login</button>
+                        <div class="text-center">
+                            <button type="button" class="btn align-middle" style="background-color:cornflowerblue;color:white" @onclick="SignIn">Login</button>
+                        </div>
                     </form>
                 </div>
             </div>
