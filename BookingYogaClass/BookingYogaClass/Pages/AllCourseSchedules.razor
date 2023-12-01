@@ -1,11 +1,14 @@
 ﻿<!-- BookClasses.razor -->
 @page "/book-classes/{username}/{email}"
 <div class="row">
-    <div class="col-7">
+    <div class="col-8">
         <h3>Classes Schedules</h3>
     </div>
-    <div class="col-5">
-        <button class="btn btn-primary float-left m-1" @onclick="BookClasses">Book</button>
+    <div class="col-4 mb-3">
+        <button class="btn no-print btn-primary font-weight-bold w-100" style="justify-content: center;font-size:18px; height: 40px" @onclick="() => BookClasses()">
+            Book
+            <div class="dotBlack align-middle mb-1" style="justify-content:center;font-size:14px"> @AddToCartCount</div>
+        </button>
     </div>
 </div>
 <div class="container">
@@ -51,9 +54,7 @@
         <thead>
             <tr>
                 <th>Select</th>
-                <th>Day of Week</th>
-                <th>Date</th>
-                <th>Time</th>
+                <th>Day/Date/Time</th>
                 <th>Course Name</th>
                 <th>Teacher</th>
             </tr>
@@ -63,18 +64,19 @@
             {
                 <tr>
                     <td>
-                        @if (schedule.Selected)
+                        @if (!schedule.Selected)
                         {
-                            <button class="btn btn-success float-left m-1" @onclick="() => AddToCart(schedule)">Add To Cart<i class="fa fa-plus"></i></button>
+                            <button class="btn btn-success float-left m-1" style="font-size:20px" @onclick="() => AddToCart(schedule)"><i class="fa fa-plus"></i></button>
                         }
                         else
                         {
-                            <button class="btn btn-danger float-left m-1" @onclick="() => RemoveFromCart(schedule)">Remove From Cart<i class="fa fa-close"></i></button>
+                            <button class="btn btn-danger float-left m-1" style="font-size:20px" @onclick="() => RemoveFromCart(schedule)"><i class="fa fa-close"></i></button>
                         }
                     </td>
-                    <td>@schedule.DayOfWeek</td>
-                    <td>@schedule.Date</td>
-                    <td>@schedule.Time</td>
+                    <td>@schedule.DayOfWeek<br>
+                        @schedule.Date<br>
+                        @schedule.Time
+                    </td>
                     <td>@schedule.CourseName</td>
                     <td>@schedule.Teacher</td>
                 </tr>
@@ -91,7 +93,7 @@
     public string email { get; set; }
     private List<CourseSchedule> AllSchedules { get; set; }
     private List<CourseSchedule> FilteredSchedules { get; set; }
-    private List<CourseSchedule> AddToCartSchedules { get; set; }
+    private int AddToCartCount { get; set; }
     [Inject]
     IToastService ToastService { get; set; }
     private string selectedDayOfWeek = DateTime.Now.DayOfWeek.ToString();
@@ -138,11 +140,13 @@
     {
         var index = FilteredSchedules.FindIndex(x => x.InstanceId == course.InstanceId);
         FilteredSchedules[index].Selected = true;
+        AddToCartCount = FilteredSchedules.Where(x => x.Selected).Count();
     }
     private void RemoveFromCart(CourseSchedule course)
     {
         var index = FilteredSchedules.FindIndex(x => x.InstanceId == course.InstanceId);
         FilteredSchedules[index].Selected = false;
+        AddToCartCount = FilteredSchedules.Where(x => x.Selected).Count();
     }
     private void BookClasses()
     {

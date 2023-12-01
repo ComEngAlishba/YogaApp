@@ -2,6 +2,7 @@
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color:beige;
 }
 
 h1:focus {
@@ -11,7 +12,9 @@ h1:focus {
 a, .btn-link {
     color: #0071c1;
 }
-
+.btn{
+    font-weight:bold;
+}
 .btn-primary {
     color: #fff;
     background-color: #1b6ec2;
@@ -45,7 +48,23 @@ a, .btn-link {
     width: 100%;
     z-index: 1000;
 }
-
+label{
+    font-size:16px;
+    font-weight:bold;
+}
+.dotBlack {
+    height: 20px;
+    width: 20px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 2px;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
 #blazor-error-ui .dismiss {
     cursor: pointer;
     position: absolute;
