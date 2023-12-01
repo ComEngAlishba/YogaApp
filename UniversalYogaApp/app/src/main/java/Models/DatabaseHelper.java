@@ -172,6 +172,57 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             showToast(context, "Failed to delete course");
         }
     }
+    @SuppressLint("Range")
+    public Course getCourseByCourseId(int courseId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Course course = null;
+
+        String[] columns = {
+                KEY_COURSE_ID,
+                KEY_COURSE_NAME,
+                KEY_INSTRUCTOR_NAME,
+                KEY_CREDIT_HOURS,
+                KEY_DAY_OF_WEEK,
+                KEY_TIME_OF_COURSE,
+                KEY_CAPACITY,
+                KEY_DURATION,
+                KEY_PRICE_PER_CLASS,
+                KEY_TYPE_OF_CLASS,
+                KEY_DESCRIPTION,
+                KEY_LOCATION,
+                KEY_DIFFICULTY_LEVEL,
+                KEY_PREREQUISITE_COURSE
+        };
+
+        String selection = KEY_COURSE_ID + "=?";
+        String[] selectionArgs = {String.valueOf(courseId)};
+
+        Cursor cursor = db.query(TABLE_COURSE, columns, selection, selectionArgs, null, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            course = new Course();
+            course.setCourseId(cursor.getInt(cursor.getColumnIndex(KEY_COURSE_ID)));
+            course.setCourseName(cursor.getString(cursor.getColumnIndex(KEY_COURSE_NAME)));
+            course.setInstructorName(cursor.getString(cursor.getColumnIndex(KEY_INSTRUCTOR_NAME)));
+            course.setCreditHours(cursor.getInt(cursor.getColumnIndex(KEY_CREDIT_HOURS)));
+            course.setDayOfWeek(cursor.getString(cursor.getColumnIndex(KEY_DAY_OF_WEEK)));
+            course.setTimeOfCourse(cursor.getString(cursor.getColumnIndex(KEY_TIME_OF_COURSE)));
+            course.setCapacity(cursor.getInt(cursor.getColumnIndex(KEY_CAPACITY)));
+            course.setDuration(cursor.getInt(cursor.getColumnIndex(KEY_DURATION)));
+            course.setPricePerClass(cursor.getDouble(cursor.getColumnIndex(KEY_PRICE_PER_CLASS)));
+            course.setTypeOfClass(cursor.getString(cursor.getColumnIndex(KEY_TYPE_OF_CLASS)));
+            course.setDescription(cursor.getString(cursor.getColumnIndex(KEY_DESCRIPTION)));
+            course.setLocation(cursor.getString(cursor.getColumnIndex(KEY_LOCATION)));
+            course.setDifficultyLevel(cursor.getString(cursor.getColumnIndex(KEY_DIFFICULTY_LEVEL)));
+            course.setPrerequisiteCourse(cursor.getString(cursor.getColumnIndex(KEY_PREREQUISITE_COURSE)));
+
+            cursor.close();
+        }
+
+        db.close();
+
+        return course;
+    }
 
     // Function to get all courses
     @SuppressLint("Range")
