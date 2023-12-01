@@ -28,11 +28,24 @@
 @code {
     private string username;
     private string email;
+    [Inject]
+    IToastService ToastService { get; set; }
 
     public void SignIn()
     {
-        // Add your login logic here
-        // For example, navigate to another page after login
-        Navigation.NavigateTo("/book-classes/" + username +"/" + email);
+        if(String.IsNullOrEmpty(username))
+        {
+            ToastService.ShowError("Please Enter Username!");
+        }
+        else if (String.IsNullOrEmpty(email))
+        {
+            ToastService.ShowError("Please Enter Email!");
+        }
+        else
+        {
+            // Add your login logic here
+            // For example, navigate to another page after login
+            Navigation.NavigateTo("/book-classes/" + username + "/" + email);
+        }
     }
 }

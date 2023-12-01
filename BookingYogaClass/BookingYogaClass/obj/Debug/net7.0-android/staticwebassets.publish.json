@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "her68924z93xaQNpIgWOeftoVugeniqXZm3VyfngB1Q=",
+  "Hash": "PYyMCv21CexAbdkUmOkMo2WNbe2cHtPrCJejchsJRlg=",
   "Source": "BookingYogaClass",
   "BasePath": "/",
   "Mode": "Root",
@@ -16,6 +16,23 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\Alishba\\.nuget\\packages\\blazored.toast\\4.1.0\\staticwebassets\\Blazored.Toast.bundle.scp.css",
+      "SourceId": "Blazored.Toast",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Alishba\\.nuget\\packages\\blazored.toast\\4.1.0\\staticwebassets\\",
+      "BasePath": "_content/Blazored.Toast",
+      "RelativePath": "Blazored.Toast.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Alishba\\.nuget\\packages\\blazored.toast\\4.1.0\\staticwebassets\\Blazored.Toast.bundle.scp.css"
+    },
     {
       "Identity": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\obj\\Debug\\net7.0-android\\scopedcss\\bundle\\BookingYogaClass.styles.css",
       "SourceId": "BookingYogaClass",

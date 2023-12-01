@@ -1,0 +1,1 @@
+C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\BookingYogaClass.csproj;x64

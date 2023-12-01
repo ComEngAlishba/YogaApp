@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "WSXPfx+LgCJEFvvxsmUrwWGDNAIgWV1JA/kr38cISCN0VPLo+ihSfOZjIuqfE6hcMqFNMka26UDad/WY2KTx3w==",
+  "dgSpecHash": "n6V1cBccQyvgCWr1+BmyI8gCWlsLTYOwJnLCaGsW/gdxyQ0RQMoiQg7dBr7qGEaZT9JsKPP7jBLExYSGWMtxhw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Alishba\\Documents\\GitHub\\YogaApp\\BookingYogaClass\\BookingYogaClass\\BookingYogaClass.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Alishba\\.nuget\\packages\\blazored.toast\\4.1.0\\blazored.toast.4.1.0.nupkg.sha512",
     "C:\\Users\\Alishba\\.nuget\\packages\\googlegson\\2.9.1.1\\googlegson.2.9.1.1.nupkg.sha512",
     "C:\\Users\\Alishba\\.nuget\\packages\\microsoft.aspnetcore.authorization\\7.0.11\\microsoft.aspnetcore.authorization.7.0.11.nupkg.sha512",
     "C:\\Users\\Alishba\\.nuget\\packages\\microsoft.aspnetcore.components\\7.0.11\\microsoft.aspnetcore.components.7.0.11.nupkg.sha512",

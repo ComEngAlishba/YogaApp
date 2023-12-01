@@ -1,30 +1,47 @@
 ﻿<!-- BookClasses.razor -->
-@page "/book-classes"
-
-<h3>Book Classes</h3>
-<button class="btn btn-primary" @onclick="BookClasses">Book Classes</button>
+@page "/book-classes/{username}/{email}"
+<div class="row">
+    <div class="col-7">
+        <h3>Classes Schedules</h3>
+    </div>
+    <div class="col-5">
+        <button class="btn btn-primary float-left m-1" @onclick="BookClasses">Book</button>
+    </div>
+</div>
 <div class="container">
     <div class="row mb-3">
         <div class="col-md-6">
-            <label for="dayOfWeekFilter" class="form-label">Day of Week Filter:</label>
-            <select class="form-control" id="dayOfWeekFilter" @bind="selectedDayOfWeek">
-                <option value="">All</option>
-                <option value="Monday">Monday</option>
-                <option value="Tuesday">Tuesday</option>
-                <option value="Wednesday">Wednesday</option>
-                <option value="Thursday">Thursday</option>
-                <option value="Friday">Friday</option>
-                <option value="Saturday">Saturday</option>
-                <option value="Sunday">Sunday</option>
-            </select>
+            <div class="row">
+                <div class="col-2">
+                    <label for="dayOfWeekFilter" style="font-size:16px;" class=" form-label mt-2" >Day:</label>
+                </div>
+                <div class="col-6">
+                    <select class="form-control" id="dayOfWeekFilter" @bind="selectedDayOfWeek">
+                        <option value="">All</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <button class="btn " style="font-size:16px;background-color:darkgray" @onclick="GetFilteredSchedulesByDay">Filter <i class="fa fa-filter"></i></button>
+                </div>
+            </div>
         </div>
         <div class="col-md-6">
-            <div class="col-sm-12 row">
-                <div class="col-sm-6">
-                    <label for="dateFilter" class="form-label">Date Filter:</label>
+            <div class="row">
+                <div class="col-2">
+                    <label for="dateFilter" style="font-size:16px;" class=" form-label mt-2">Date:</label>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-6">
                     <input type="date" class="form-control" id="dateFilter" @bind-value="selectedDate" />
+                </div>
+                <div class="col-4">
+                    <button class="btn" style="font-size:16px;background-color:darkgray" @onclick="GetFilteredSchedulesByDate">Filter <i class="fa fa-filter"></i></button>
                 </div>
             </div>
         </div>
@@ -45,7 +62,16 @@
             @foreach (var schedule in FilteredSchedules)
             {
                 <tr>
-                    <td><input type="checkbox" @bind="schedule.Selected" /></td>
+                    <td>
+                        @if (schedule.Selected)
+                        {
+                            <button class="btn btn-success float-left m-1" @onclick="() => AddToCart(schedule)">Add To Cart<i class="fa fa-plus"></i></button>
+                        }
+                        else
+                        {
+                            <button class="btn btn-danger float-left m-1" @onclick="() => RemoveFromCart(schedule)">Remove From Cart<i class="fa fa-close"></i></button>
+                        }
+                    </td>
                     <td>@schedule.DayOfWeek</td>
                     <td>@schedule.Date</td>
                     <td>@schedule.Time</td>
@@ -59,9 +85,15 @@
 </div>
 
 @code {
+    [Parameter]
+    public string username { get; set; }
+    [Parameter]
+    public string email { get; set; }
     private List<CourseSchedule> AllSchedules { get; set; }
     private List<CourseSchedule> FilteredSchedules { get; set; }
-
+    private List<CourseSchedule> AddToCartSchedules { get; set; }
+    [Inject]
+    IToastService ToastService { get; set; }
     private string selectedDayOfWeek = DateTime.Now.DayOfWeek.ToString();
     private DateTime selectedDate = DateTime.Now;
 
@@ -84,38 +116,38 @@
         FilteredSchedules = AllSchedules;
     }
 
-    private void GetFilteredSchedules()
+    private void GetFilteredSchedulesByDay()
     {
         // Apply filters based on selectedDayOfWeek and selectedDate
         var filteredSchedules = AllSchedules;
-
-        if (!string.IsNullOrEmpty(selectedDayOfWeek))
+        if (!string.IsNullOrEmpty(selectedDayOfWeek) && selectedDayOfWeek == "All")
         {
             filteredSchedules = filteredSchedules.Where(s => s.DayOfWeek == selectedDayOfWeek).ToList();
         }
-
-        if (!string.IsNullOrEmpty(selectedDate.ToShortDateString()))
-        {
-            filteredSchedules = filteredSchedules.Where(s => s.Date == selectedDate.ToShortDateString()).ToList();
-        }
-
+        FilteredSchedules = filteredSchedules;
+    }
+    private void GetFilteredSchedulesByDate()
+    {
+        // Apply filters based on selectedDayOfWeek and selectedDate
+        var filteredSchedules = AllSchedules;
+        filteredSchedules = filteredSchedules.Where(s => s.Date == selectedDate.ToString("MM/dd/yyyy")).ToList();
         FilteredSchedules = filteredSchedules;
     }
 
+    private void AddToCart(CourseSchedule course)
+    {
+        var index = FilteredSchedules.FindIndex(x => x.InstanceId == course.InstanceId);
+        FilteredSchedules[index].Selected = true;
+    }
+    private void RemoveFromCart(CourseSchedule course)
+    {
+        var index = FilteredSchedules.FindIndex(x => x.InstanceId == course.InstanceId);
+        FilteredSchedules[index].Selected = false;
+    }
     private void BookClasses()
     {
-        // Add your logic to book selected classes
-        var selectedClasses = FilteredSchedules.Where(s => s.Selected).ToList();
-        // Perform booking actions based on selected classes
-        // ...
-
-        // For demonstration purposes, print selected classes to console
-        foreach (var selectedClass in selectedClasses)
-        {
-            Console.WriteLine($"Class {selectedClass.InstanceId} selected for booking.");
-        }
+        
     }
-
     public class CourseSchedule
     {
         public int InstanceId { get; set; }

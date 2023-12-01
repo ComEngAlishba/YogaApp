@@ -1,6 +1,6 @@
 ﻿using BookingYogaClass.Data;
 using Microsoft.Extensions.Logging;
-
+using Blazored.Toast;
 namespace BookingYogaClass
 {
     public static class MauiProgram
@@ -16,6 +16,7 @@ namespace BookingYogaClass
                 });
 
             builder.Services.AddMauiBlazorWebView();
+            builder.Services.AddBlazoredToast();
 
 #if DEBUG
 		builder.Services.AddBlazorWebViewDeveloperTools();
