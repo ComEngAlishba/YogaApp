@@ -22,7 +22,7 @@
 
     <LinearLayout
         android:layout_width="334dp"
-        android:layout_height="671dp"
+        android:layout_height="750dp"
         android:layout_margin="20dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -34,27 +34,27 @@
 
 
         <TextView
-            android:id="@+id/textdays"
+            android:id="@+id/textdays2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:fontFamily="sans-serif-medium"
-            android:text="Select Day"
+            android:text="@string/select_day"
             android:textColor="@color/black"
             android:textSize="16sp" />
-
         <Spinner
-            android:id="@+id/spinnerDays"
+            android:id="@+id/spinnerDays2"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginTop="5dp"
-            android:background="@color/cardview_light_background"
+            android:layout_marginTop="10dp"
             android:entries="@array/nameOfDays"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
+
         <TextView
-            android:id="@+id/textTime"
+            android:id="@+id/textTime2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -62,16 +62,17 @@
             android:text="Select Time"
             android:textColor="@color/black"
             android:textSize="16sp" />
-
-
         <Spinner
-            android:id="@+id/spinnerTime"
+            android:id="@+id/spinnerTime2"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/cardview_light_background"
             android:entries="@array/time"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -84,7 +85,7 @@
             app:boxStrokeColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextCapacity"
+                android:id="@+id/editTextCapacity2"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:fontFamily="sans-serif-medium"
@@ -105,7 +106,7 @@
             app:boxStrokeColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextDuration"
+                android:id="@+id/editTextDuration2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
@@ -125,7 +126,7 @@
             app:boxStrokeColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextPrice"
+                android:id="@+id/editTextPrice2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
@@ -136,7 +137,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-            android:id="@+id/textType"
+            android:id="@+id/textType2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -146,7 +147,7 @@
             android:textSize="16sp" />
 
         <Spinner
-            android:id="@+id/spinnerType"
+            android:id="@+id/spinnerType2"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="16dp"
@@ -164,7 +165,7 @@
 
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextDescription"
+                android:id="@+id/editTextDescription2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
@@ -176,7 +177,7 @@
 
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonAdd"
+            android:id="@+id/buttonUpdate"
             android:layout_width="287dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -184,17 +185,24 @@
             android:backgroundTint="@color/colorPrimaryDark"
             android:fontFamily="sans-serif-condensed-medium"
             android:padding="12dp"
-            android:text="Add Course"
+            android:text="Update Course"
+            android:textSize="15sp"
+            app:cornerRadius="10dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonDelete"
+            android:layout_width="287dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/red"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:padding="12dp"
+            android:text="Delete Course"
             android:textSize="15sp"
             app:cornerRadius="10dp" />
 
     </LinearLayout>
-
-
-
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

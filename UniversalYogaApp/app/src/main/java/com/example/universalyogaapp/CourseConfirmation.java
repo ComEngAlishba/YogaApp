@@ -53,7 +53,7 @@ public class CourseConfirmation extends AppCompatActivity {
             @Override
             public void onClick(View v){
 
-               Intent intent = new Intent(CourseConfirmation.this, MainActivity.class);
+               Intent intent = new Intent(CourseConfirmation.this, com.example.universalyogaapp.MainActivity.class);
                startActivity(intent);
             }
         });

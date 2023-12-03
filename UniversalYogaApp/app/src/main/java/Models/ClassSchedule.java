@@ -2,7 +2,7 @@ package Models;
 
 public class ClassSchedule {
     private int scheduleId;
-    private int courseId;
+    private String courseName;
     private String date;
     private String teacherName;
     private String additionalComments;
@@ -20,12 +20,12 @@ public class ClassSchedule {
         this.scheduleId = scheduleId;
     }
 
-    public int getCourseId() {
-        return courseId;
+    public String getCourseName() {
+        return courseName;
     }
 
-    public void setCourseId(int courseId) {
-        this.courseId = courseId;
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 
     public String getDate() {

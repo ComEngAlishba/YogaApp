@@ -2,30 +2,28 @@ package com.example.universalyogaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.view.View;
 import android.os.Bundle;
-import android.content.Intent;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-
+import Models.ClassSchedule;
+import Models.Course;
+import Models.DatabaseHelper;
 
 
 public class MainActivity extends AppCompatActivity {
-
 
     //All buttons
     Button bAdd;
     // All required text fields
     Spinner spDays, spTime, spType;
     EditText  etCapacity, etDuration, etPrice,etDescription;
-
-
-
-
+    DatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         // register buttons with their proper IDs.
         bAdd = findViewById(R.id.buttonAdd);
 
-
+        dbHelper = new DatabaseHelper(this);
 
         // register all the EditText fields with their IDs.
         spDays = findViewById(R.id.spinnerDays);
@@ -71,37 +69,20 @@ public class MainActivity extends AppCompatActivity {
         bAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String selectedDays = spDays.getSelectedItem().toString();
-//                String selectedTime = spTime.getSelectedItem().toString();
-//                String selectedType = spType.getSelectedItem().toString();
                 String capacity = etCapacity.getText().toString();
                 String duration = etDuration.getText().toString();
                 String price = etPrice.getText().toString();
                 String description = etDescription.getText().toString();
 
-
                 boolean check = validateInfo(capacity, duration, price, description);
 
-
-                if (check == true) {
-
-                    Intent intent = new Intent(MainActivity.this,MainActivity.class);
-//                    intent.putExtra("Days", "Selected Days: " + selectedDays);
-//                    intent.putExtra("Time", "Selected Time: " + selectedTime);
-//                    intent.putExtra("Capacity", "Capacity of the class: " + capacity);
-//                    intent.putExtra("Duration", "Duration of the class: " + duration);
-//                    intent.putExtra("Price", "Price of the class: " + price);
-//                    intent.putExtra("Type", "Selected Type: " + selectedType);
-//                    intent.putExtra("Description", "Description of the class: " + description);
-                    startActivity(intent);
-
-                    Toast.makeText(MainActivity.this, "Hurray You Successfully Added The Course.", Toast.LENGTH_SHORT).show();
+                if (check) {
+                    addCourses();
+                    Toast.makeText(MainActivity.this, "Data added Successfully", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(MainActivity.this, "Sorry Check  The Information", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Sorry, Check the Information", Toast.LENGTH_SHORT).show();
                 }
-
             }
-
 
             private Boolean validateInfo(String capacity, String duration, String price, String description) {
                 if (capacity.length() == 0) {
@@ -116,13 +97,42 @@ public class MainActivity extends AppCompatActivity {
                     etPrice.requestFocus();
                     etPrice.setError("Please provide price of the class");
                     return false;
-                }
-                else {
+                } else {
                     return true;
                 }
             }
-
         });
+    }
+
+    public void addCourses() {
+        // Capture user input from UI
+        String selectedDay = spDays.getSelectedItem().toString();
+        String selectedTime = spTime.getSelectedItem().toString();
+        String capacity = etCapacity.getText().toString().trim();
+        String duration = etDuration.getText().toString().trim();
+        String price = etPrice.getText().toString().trim();
+        String selectedType = spType.getSelectedItem().toString();
+        String description = etDescription.getText().toString().trim();
+
+        // Create a course object
+        Course course = new Course();
+
+        course.setDayOfWeek(selectedDay);
+        course.setTimeOfCourse(selectedTime);
+        course.setCapacity(Integer.parseInt(capacity));
+        course.setDuration(Integer.parseInt(duration));
+        course.setPricePerClass(Double.parseDouble(price));
+        course.setTypeOfClass(selectedType);
+        course.setDescription(description);
+
+        // Call the method to add data to the database
+        // dbHelper.addCourse(course, this);
+        DatabaseHelper dbHelper = new DatabaseHelper(this);
+        dbHelper.addCourse(course, this);
+
+        //calling the UI after the database
+        Intent intent = new Intent(MainActivity.this, Courses.class);
+        startActivity(intent);
     }
 }
 

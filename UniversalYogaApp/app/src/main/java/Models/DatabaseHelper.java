@@ -15,7 +15,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Database information
     private static final String DATABASE_NAME = "YourDatabaseName";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 4;
 
     // Table name
     private static final String TABLE_COURSE = "Course";
@@ -23,12 +23,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Column names for Course Table
     private static final String KEY_COURSE_ID = "course_id";
-    private static final String KEY_COURSE_NAME = "course_name";
-    private static final String KEY_INSTRUCTOR_NAME = "instructor_name";
-    private static final String KEY_DEPARTMENT = "department";
-    private static final String KEY_START_DATE = "start_date";
-    private static final String KEY_END_DATE = "end_date";
-    private static final String KEY_CREDIT_HOURS = "credit_hours";
     private static final String KEY_DAY_OF_WEEK = "day_of_week";
     private static final String KEY_TIME_OF_COURSE = "time_of_course";
     private static final String KEY_CAPACITY = "capacity";
@@ -36,14 +30,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_PRICE_PER_CLASS = "price_per_class";
     private static final String KEY_TYPE_OF_CLASS = "type_of_class";
     private static final String KEY_DESCRIPTION = "description";
-    private static final String KEY_LOCATION = "location";
-    private static final String KEY_DIFFICULTY_LEVEL = "difficulty_level";
-    private static final String KEY_PREREQUISITE_COURSE = "prerequisite_course";
 
     // Column names for ClassSchedule table
     private static final String KEY_SCHEDULE_ID = "schedule_id";
     private static final String KEY_SCHEDULE_DATE = "date";
     private static final String KEY_SCHEDULE_TEACHER_NAME = "teacher_name";
+    private static final String KEY_COURSE_NAME = "course_name";
     private static final String KEY_SCHEDULE_ADDITIONAL_COMMENTS = "additional_comments";
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -54,32 +46,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Create Course table
         String createCourseTable = "CREATE TABLE " + TABLE_COURSE + "("
                 + KEY_COURSE_ID + " INTEGER PRIMARY KEY,"
-                + KEY_COURSE_NAME + " TEXT,"
-                + KEY_INSTRUCTOR_NAME + " TEXT,"
-                + KEY_DEPARTMENT + " TEXT,"
-                + KEY_START_DATE + " DATE,"
-                + KEY_END_DATE + " DATE,"
-                + KEY_CREDIT_HOURS + " INTEGER,"
                 + KEY_DAY_OF_WEEK + " TEXT NOT NULL,"
                 + KEY_TIME_OF_COURSE + " TEXT NOT NULL,"
                 + KEY_CAPACITY + " INTEGER,"
                 + KEY_DURATION + " INTEGER,"
                 + KEY_PRICE_PER_CLASS + " REAL,"
                 + KEY_TYPE_OF_CLASS + " TEXT NOT NULL,"
-                + KEY_DESCRIPTION + " TEXT,"
-                + KEY_LOCATION + " TEXT,"
-                + KEY_DIFFICULTY_LEVEL + " TEXT,"
-                + KEY_PREREQUISITE_COURSE + " TEXT "
+                + KEY_DESCRIPTION + " TEXT "
                 + ")";
         db.execSQL(createCourseTable);
         // Create ClassSchedule table
         String createScheduleTable = "CREATE TABLE " + TABLE_SCHEDULE + "("
                 + KEY_SCHEDULE_ID + " INTEGER PRIMARY KEY,"
-                + KEY_COURSE_ID + " INTEGER NOT NULL,"
                 + KEY_SCHEDULE_DATE + " TEXT NOT NULL,"
                 + KEY_SCHEDULE_TEACHER_NAME + " TEXT NOT NULL,"
-                + KEY_SCHEDULE_ADDITIONAL_COMMENTS + " TEXT,"
-                + "FOREIGN KEY (" + KEY_COURSE_ID + ") REFERENCES " + TABLE_COURSE + "(" + KEY_COURSE_ID + ")"
+                + KEY_COURSE_NAME + " TEXT NOT NULL,"
+                + KEY_SCHEDULE_ADDITIONAL_COMMENTS + " TEXT "
                 + ")";
         db.execSQL(createScheduleTable);
     }
@@ -92,11 +74,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Function to add a course
     public void addCourse(Course course, Context context) {
         SQLiteDatabase db = this.getWritableDatabase();
-
         ContentValues values = new ContentValues();
-        values.put(KEY_COURSE_NAME, course.getCourseName());
-        values.put(KEY_INSTRUCTOR_NAME, course.getInstructorName());
-        values.put(KEY_CREDIT_HOURS, course.getCreditHours());
         values.put(KEY_DAY_OF_WEEK, course.getDayOfWeek());
         values.put(KEY_TIME_OF_COURSE, course.getTimeOfCourse());
         values.put(KEY_CAPACITY, course.getCapacity());
@@ -104,9 +82,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_PRICE_PER_CLASS, course.getPricePerClass());
         values.put(KEY_TYPE_OF_CLASS, course.getTypeOfClass());
         values.put(KEY_DESCRIPTION, course.getDescription());
-        values.put(KEY_LOCATION, course.getLocation());
-        values.put(KEY_DIFFICULTY_LEVEL, course.getDifficultyLevel());
-        values.put(KEY_PREREQUISITE_COURSE, course.getPrerequisiteCourse());
 
         // Inserting Row
         long result = db.insert(TABLE_COURSE, null, values);
@@ -122,37 +97,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             showToast(context, "Course added successfully");
         } else {
             showToast(context, "Failed to add course");
-        }
-    }
-    // Function to update a course
-    public void updateCourse(Course course, Context context) {
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(KEY_COURSE_NAME, course.getCourseName());
-        values.put(KEY_INSTRUCTOR_NAME, course.getInstructorName());
-        values.put(KEY_CREDIT_HOURS, course.getCreditHours());
-        values.put(KEY_DAY_OF_WEEK, course.getDayOfWeek());
-        values.put(KEY_TIME_OF_COURSE, course.getTimeOfCourse());
-        values.put(KEY_CAPACITY, course.getCapacity());
-        values.put(KEY_DURATION, course.getDuration());
-        values.put(KEY_PRICE_PER_CLASS, course.getPricePerClass());
-        values.put(KEY_TYPE_OF_CLASS, course.getTypeOfClass());
-        values.put(KEY_DESCRIPTION, course.getDescription());
-        values.put(KEY_LOCATION, course.getLocation());
-        values.put(KEY_DIFFICULTY_LEVEL, course.getDifficultyLevel());
-        values.put(KEY_PREREQUISITE_COURSE, course.getPrerequisiteCourse());
-
-        int result = db.update(TABLE_COURSE, values, KEY_COURSE_ID + " = ?",
-                new String[]{String.valueOf(course.getCourseId())});
-
-        db.close();
-
-        // Display toast based on the result
-        if (result > 0) {
-            showToast(context, "Course updated successfully");
-        } else {
-            showToast(context, "Failed to update course");
         }
     }
 
@@ -177,9 +121,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         String[] columns = {
                 KEY_COURSE_ID,
-                KEY_COURSE_NAME,
-                KEY_INSTRUCTOR_NAME,
-                KEY_CREDIT_HOURS,
                 KEY_DAY_OF_WEEK,
                 KEY_TIME_OF_COURSE,
                 KEY_CAPACITY,
@@ -187,9 +128,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 KEY_PRICE_PER_CLASS,
                 KEY_TYPE_OF_CLASS,
                 KEY_DESCRIPTION,
-                KEY_LOCATION,
-                KEY_DIFFICULTY_LEVEL,
-                KEY_PREREQUISITE_COURSE
         };
 
         String selection = KEY_COURSE_ID + "=?";
@@ -200,9 +138,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (cursor != null && cursor.moveToFirst()) {
             course = new Course();
             course.setCourseId(cursor.getInt(cursor.getColumnIndex(KEY_COURSE_ID)));
-            course.setCourseName(cursor.getString(cursor.getColumnIndex(KEY_COURSE_NAME)));
-            course.setInstructorName(cursor.getString(cursor.getColumnIndex(KEY_INSTRUCTOR_NAME)));
-            course.setCreditHours(cursor.getInt(cursor.getColumnIndex(KEY_CREDIT_HOURS)));
             course.setDayOfWeek(cursor.getString(cursor.getColumnIndex(KEY_DAY_OF_WEEK)));
             course.setTimeOfCourse(cursor.getString(cursor.getColumnIndex(KEY_TIME_OF_COURSE)));
             course.setCapacity(cursor.getInt(cursor.getColumnIndex(KEY_CAPACITY)));
@@ -210,9 +145,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             course.setPricePerClass(cursor.getDouble(cursor.getColumnIndex(KEY_PRICE_PER_CLASS)));
             course.setTypeOfClass(cursor.getString(cursor.getColumnIndex(KEY_TYPE_OF_CLASS)));
             course.setDescription(cursor.getString(cursor.getColumnIndex(KEY_DESCRIPTION)));
-            course.setLocation(cursor.getString(cursor.getColumnIndex(KEY_LOCATION)));
-            course.setDifficultyLevel(cursor.getString(cursor.getColumnIndex(KEY_DIFFICULTY_LEVEL)));
-            course.setPrerequisiteCourse(cursor.getString(cursor.getColumnIndex(KEY_PREREQUISITE_COURSE)));
 
             cursor.close();
         }
@@ -235,9 +167,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             do {
                 Course course = new Course();
                 course.setCourseId(cursor.getInt(cursor.getColumnIndex(KEY_COURSE_ID)));
-                course.setCourseName(cursor.getString(cursor.getColumnIndex(KEY_COURSE_NAME)));
-                course.setInstructorName(cursor.getString(cursor.getColumnIndex(KEY_INSTRUCTOR_NAME)));
-                course.setCreditHours(cursor.getInt(cursor.getColumnIndex(KEY_CREDIT_HOURS)));
                 course.setDayOfWeek(cursor.getString(cursor.getColumnIndex(KEY_DAY_OF_WEEK)));
                 course.setTimeOfCourse(cursor.getString(cursor.getColumnIndex(KEY_TIME_OF_COURSE)));
                 course.setCapacity(cursor.getInt(cursor.getColumnIndex(KEY_CAPACITY)));
@@ -245,10 +174,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 course.setPricePerClass(cursor.getDouble(cursor.getColumnIndex(KEY_PRICE_PER_CLASS)));
                 course.setTypeOfClass(cursor.getString(cursor.getColumnIndex(KEY_TYPE_OF_CLASS)));
                 course.setDescription(cursor.getString(cursor.getColumnIndex(KEY_DESCRIPTION)));
-                course.setLocation(cursor.getString(cursor.getColumnIndex(KEY_LOCATION)));
-                course.setDifficultyLevel(cursor.getString(cursor.getColumnIndex(KEY_DIFFICULTY_LEVEL)));
-                course.setPrerequisiteCourse(cursor.getString(cursor.getColumnIndex(KEY_PREREQUISITE_COURSE)));
-
                 courseList.add(course);
             } while (cursor.moveToNext());
         }
@@ -258,14 +183,54 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return courseList;
     }
 
+
+    //updating course
+    public boolean updateCourse(String id, String day, String time, String capacity, String duration, String price, String yogaType, String description) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_DAY_OF_WEEK, day);
+        values.put(KEY_TIME_OF_COURSE, time);
+        values.put(KEY_CAPACITY, capacity);
+        values.put(KEY_DURATION, duration);
+        values.put(KEY_TYPE_OF_CLASS, yogaType);
+        values.put(KEY_DESCRIPTION, description);
+
+        long result = db.update(TABLE_COURSE, values, KEY_COURSE_ID + " = ?", new String[]{id});
+
+        boolean isUpdated = result > 0;
+        db.close();
+        return isUpdated;
+    }
+//updateCourse function
+   /* public boolean updateCourse(Course course)
+
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_DAY_OF_WEEK, course.getDayOfWeek());
+        values.put(KEY_TIME_OF_COURSE, course.getTimeOfCourse());
+        values.put(KEY_CAPACITY, course.getCapacity());
+        values.put(KEY_DURATION, course.getDuration());
+        values.put(KEY_PRICE_PER_CLASS, course.getPricePerClass());
+        values.put(KEY_TYPE_OF_CLASS, course.getTypeOfClass());
+        values.put(KEY_DESCRIPTION, course.getDescription());
+
+        long result = db.update(TABLE_COURSE, values, KEY_COURSE_ID + " = ?", new String[]{String.valueOf(course.getCourseId())});
+
+        boolean isUpdated = result > 0;
+        db.close();
+        return isUpdated;
+    }
+*/
+
     // Function to add a class schedule
     public void addClassSchedule(ClassSchedule classSchedule, Context context) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_COURSE_ID, classSchedule.getCourseId());
         values.put(KEY_SCHEDULE_DATE, classSchedule.getDate());
         values.put(KEY_SCHEDULE_TEACHER_NAME, classSchedule.getTeacherName());
+        values.put(KEY_COURSE_NAME, classSchedule.getCourseName());
         values.put(KEY_SCHEDULE_ADDITIONAL_COMMENTS, classSchedule.getAdditionalComments());
 
         long result = db.insert(TABLE_SCHEDULE, null, values);
@@ -278,12 +243,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             showToast(context, "Failed to add class schedule");
         }
     }
+
     //code trial
-    public boolean updateClassSchedule(String id, String date, String teacherName, String comment) {
+    public boolean updateClassSchedule(String id, String date, String teacherName, String courseName, String comment) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_SCHEDULE_DATE, date);
         values.put(KEY_SCHEDULE_TEACHER_NAME, teacherName);
+        values.put(KEY_COURSE_NAME, courseName);
         values.put(KEY_SCHEDULE_ADDITIONAL_COMMENTS, comment);
 
         long result = db.update(TABLE_SCHEDULE, values, KEY_SCHEDULE_ID + " = ?", new String[]{id});
@@ -292,31 +259,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return isUpdated;
     }
-
-
-    // I have used another code for this
-    // Function to update a class schedule
-  /*  public void updateClassSchedule(ClassSchedule classSchedule, Context context) {
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(KEY_SCHEDULE_ID, classSchedule.getCourseId());
-        values.put(KEY_SCHEDULE_DATE, classSchedule.getDate());
-        values.put(KEY_SCHEDULE_TEACHER_NAME, classSchedule.getTeacherName());
-        values.put(KEY_SCHEDULE_ADDITIONAL_COMMENTS, classSchedule.getAdditionalComments());
-
-        int result = db.update(TABLE_SCHEDULE, values, KEY_SCHEDULE_ID + " = ?",
-                new String[]{String.valueOf(classSchedule.getScheduleId())});
-
-        db.close();
-
-        // Display toast based on the result
-        if (result > 0) {
-            showToast(context, "Class schedule updated successfully");
-        } else {
-            showToast(context, "Failed to update class schedule");
-        }
-    }*/
 
     // Function to delete a class schedule
     public void deleteClassSchedule(int scheduleId, Context context) {
@@ -347,9 +289,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             do {
                 ClassSchedule classSchedule = new ClassSchedule();
                 classSchedule.setScheduleId(cursor.getInt(cursor.getColumnIndex(KEY_SCHEDULE_ID)));
-                classSchedule.setCourseId(cursor.getInt(cursor.getColumnIndex(KEY_COURSE_ID)));
                 classSchedule.setDate(cursor.getString(cursor.getColumnIndex(KEY_SCHEDULE_DATE)));
                 classSchedule.setTeacherName(cursor.getString(cursor.getColumnIndex(KEY_SCHEDULE_TEACHER_NAME)));
+                classSchedule.setCourseName(cursor.getString(cursor.getColumnIndex(KEY_COURSE_NAME)));
                 classSchedule.setAdditionalComments(cursor.getString(cursor.getColumnIndex(KEY_SCHEDULE_ADDITIONAL_COMMENTS)));
 
                 scheduleList.add(classSchedule);

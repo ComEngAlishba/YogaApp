@@ -1,8 +1,10 @@
 package com.example.universalyogaapp;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -26,17 +28,35 @@ public class ClassInstance extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class_instance);
 
+
         courseBox = findViewById(R.id.courseBox);
         selectDate = findViewById(R.id.scheduleDate);
         scheduleTeacher = findViewById(R.id.scheduleTeacher);
         comment = findViewById(R.id.comment);
         addSchedule = findViewById(R.id.addSchedule);
 
+        // Get the string array from strings.xml
+        String[] type = getResources().getStringArray(R.array.typeOfClass);
+
+        // Create an ArrayAdapter and set it to the spinner
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, type);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        courseBox.setAdapter(adapter2);
+
 // to select the date we have used following method
         final Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
         final int month = calendar.get(Calendar.MONTH);
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        // Retrieve the selected course type from the Intent
+        String selectedType = getIntent().getStringExtra("selectedType");
+        // Set the selected course type in the courseBox Spinner
+        if (selectedType != null) {
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new String[]{selectedType});
+            courseBox.setAdapter(adapter);
+            courseBox.setSelection(0);
+        }
 
         selectDate.setOnClickListener(v -> {
             DatePickerDialog dialog = new DatePickerDialog(ClassInstance.this, (view, year1, month1, dayOfMonth) -> {
@@ -48,23 +68,21 @@ public class ClassInstance extends AppCompatActivity {
             dialog.show();
         });
 
-
         //setting up on click listener for add button
         addSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addToDb();
+
             }
         });
-
-
     }
-
-    private void addToDb (){
+    private void addToDb(){
         // Capture user input from UI
-        //String courseId = courseBox.getText().toString();
+
         String scheduleDate = selectDate.getText().toString().trim();
         String teacherName = scheduleTeacher.getText().toString().trim();
+        String courseName = courseBox.getSelectedItem().toString();
         String additionalComments = comment.getText().toString().trim();
 
         // Create a ClassSchedule object
@@ -72,12 +90,20 @@ public class ClassInstance extends AppCompatActivity {
         //classSchedule.setCourseId(courseId);
         classSchedule.setDate(scheduleDate);
         classSchedule.setTeacherName(teacherName);
+        classSchedule.setCourseName(courseName);
         classSchedule.setAdditionalComments(additionalComments);
 
         // Call the method to add data to the database
         DatabaseHelper dbHelper = new DatabaseHelper(this);
         dbHelper.addClassSchedule(classSchedule, this);
 
+        //calling the UI after the database
+        Intent intent = new Intent(ClassInstance.this, Schedule.class);
+        startActivity(intent);
+
     }
+
+
+
 }
 

@@ -29,7 +29,7 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Start the next activity
-                Intent intent = new Intent(HomePage.this, MainActivity.class);
+                Intent intent = new Intent(HomePage.this, com.example.universalyogaapp.MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -38,7 +38,7 @@ public class HomePage extends AppCompatActivity {
         addSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomePage.this, Schedule.class);
+                Intent intent = new Intent(HomePage.this, ClassInstance.class);
                 startActivity(intent);
             }
         });
@@ -46,7 +46,7 @@ public class HomePage extends AppCompatActivity {
         viewCourse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomePage.this, MainActivity.class);
+                Intent intent = new Intent(HomePage.this, Courses.class);
                 startActivity(intent);
             }
         });
@@ -54,7 +54,7 @@ public class HomePage extends AppCompatActivity {
         viewSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomePage.this, MainActivity.class);
+                Intent intent = new Intent(HomePage.this, Schedule.class);
                 startActivity(intent);
             }
         });

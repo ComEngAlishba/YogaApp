@@ -7,7 +7,7 @@
     tools:context=".ClassInstance">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/update_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/name_of_course"
@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.13" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/update_textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/date"
@@ -31,9 +31,10 @@
         app:layout_constraintVertical_bias="0.265" />
 
     <EditText
-        android:id="@+id/scheduleDate"
+        android:id="@+id/update_scheduleDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:autofillHints="DD/MM/YYYY"
         android:ems="10"
         android:hint="@string/select_date"
         android:inputType="date"
@@ -45,11 +46,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.26"
-        tools:ignore="LabelFor"
-        android:autofillHints="DD/MM/YYYY"/>
+        tools:ignore="LabelFor" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/update_textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/name_of_teacher"
@@ -61,11 +61,12 @@
         app:layout_constraintVertical_bias="0.414" />
 
     <EditText
-        android:id="@+id/scheduleTeacher"
+        android:id="@+id/update_scheduleTeacher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/name_of_a_teacher"
+        android:importantForAutofill="no"
         android:inputType="text"
         android:minHeight="48dp"
         android:textColorHint="#8D6E63"
@@ -74,11 +75,10 @@
         app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.409"
-        android:importantForAutofill="no" />
+        app:layout_constraintVertical_bias="0.409" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/update_textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/comment"
@@ -90,7 +90,7 @@
         app:layout_constraintVertical_bias="0.542" />
 
     <EditText
-        android:id="@+id/comment"
+        android:id="@+id/update_comment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autofillHints="Everything's fine"
@@ -107,10 +107,9 @@
         app:layout_constraintVertical_bias="0.545" />
 
     <Spinner
-        android:id="@+id/courseBox"
+        android:id="@+id/update_courseName"
         android:layout_width="206dp"
         android:layout_height="48dp"
-        android:entries="@array/typeOfClass"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.834"
@@ -119,15 +118,27 @@
         app:layout_constraintVertical_bias="0.114" />
 
     <Button
-        android:id="@+id/addSchedule"
+        android:id="@+id/updateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/add"
+        android:text="@string/update"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.223"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.742" />
+        app:layout_constraintVertical_bias="0.755" />
+
+    <Button
+        android:id="@+id/DeleteBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.725"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.755" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

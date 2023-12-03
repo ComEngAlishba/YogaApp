@@ -97,4 +97,8 @@
     <string name="view_courses">View Courses</string>
     <string name="add_courses">Add Courses</string>
     <string name="add_schedule">Add Schedule</string>
+    <string name="update">update</string>
+    <string name="delete">Delete</string>
+    <string name="delete_courses">delete courses</string>
+    <string name="select_day">Select Day</string>
 </resources>
