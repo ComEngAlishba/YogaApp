@@ -55,24 +55,20 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.MyViewHold
         holder.CourseDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(context, UpdateCourse.class);
-
-                // Retrieve course details using DatabaseHelper
-                int courseIdTxt = Integer.parseInt((String) courseId.get(position));
-                DatabaseHelper dbHelper = new DatabaseHelper(context);
-                Course course = dbHelper.getCourseByCourseId(courseIdTxt);
-
                 // Set course details to Intent extras
-                intent.putExtra("id", course.getCourseId());
-                intent.putExtra("time", course.getTimeOfCourse());
-                intent.putExtra("day", course.getDayOfWeek());
-                intent.putExtra("capacity", String.valueOf(course.getCapacity()));
-                intent.putExtra("duration", String.valueOf(course.getDuration()));
-                intent.putExtra("price", String.valueOf(course.getPricePerClass()));
-                intent.putExtra("yogaType", course.getTypeOfClass());
-                intent.putExtra("description", course.getDescription());
+                intent.putExtra("id", String.valueOf(courseId.get(position)));
+                intent.putExtra("day", String.valueOf(selectedDay.get(position)));
+                intent.putExtra("time", String.valueOf(selectedTime.get(position)));
+                intent.putExtra("capacity", String.valueOf(capacity.get(position)));
+                intent.putExtra("duration", String.valueOf(duration.get(position)));
+                intent.putExtra("price", String.valueOf(price.get(position)));
+                intent.putExtra("yogaType", String.valueOf(selectedType.get(position)));
+                intent.putExtra("description", String.valueOf(description.get(position)));
 
                 context.startActivity(intent);
+
             }
         });
 

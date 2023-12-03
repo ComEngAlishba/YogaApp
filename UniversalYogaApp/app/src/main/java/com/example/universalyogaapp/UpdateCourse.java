@@ -1,7 +1,9 @@
 package com.example.universalyogaapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -38,6 +40,14 @@ public class UpdateCourse extends AppCompatActivity {
         etPrice2 = findViewById(R.id.editTextPrice2);
         etDescription2 = findViewById(R.id.editTextDescription2);
         buttonUpdate = findViewById(R.id.buttonUpdate);
+        buttonDelete = findViewById(R.id.buttonDelete);
+
+        buttonDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogBox();
+            }
+        });
 
         //code for updating course
         buttonUpdate.setOnClickListener(new View.OnClickListener() {
@@ -102,6 +112,32 @@ public class UpdateCourse extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Sorry! No Data present!", Toast.LENGTH_SHORT).show();
         }
+    }
+
+        public void dialogBox(){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Delete " + yogaType + "?");
+            builder.setMessage("Are you sure you want to delete ?");
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                    // Delete the class schedule
+                    DatabaseHelper dbHelper = new DatabaseHelper(UpdateCourse.this);
+                    dbHelper.deleteCourse(Integer.parseInt(id), UpdateCourse.this);
+
+                    // Navigate back to the Schedule activity
+                    Intent intent = new Intent(UpdateCourse.this, Courses.class);
+                    startActivity(intent);
+
+                }
+            });
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
+            builder.create().show();
 
     }
 }

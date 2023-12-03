@@ -36,12 +36,12 @@
                 app:layout_constraintVertical_bias="0.64" />
 
             <TextView
-                android:id="@+id/dayTxt"
+                android:id="@+id/yogaTypeTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="4dp"
-                android:text="Sunday"
+                android:text="Family Yoga"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -49,13 +49,13 @@
                 app:layout_constraintTop_toTopOf="@+id/courseIdTxt" />
 
             <TextView
-                android:id="@+id/yogaTypeTxt"
+                android:id="@+id/dayTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Aerial Yoga"
+                android:text="Sunday"
                 android:textColor="@color/colorPrimary"
-                app:layout_constraintStart_toStartOf="@+id/dayTxt"
-                app:layout_constraintTop_toBottomOf="@+id/dayTxt" />
+                app:layout_constraintStart_toStartOf="@+id/yogaTypeTxt"
+                app:layout_constraintTop_toBottomOf="@+id/yogaTypeTxt" />
 
             <TextView
                 android:id="@+id/timeTxt"
