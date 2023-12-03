@@ -15,7 +15,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Database information
     private static final String DATABASE_NAME = "YourDatabaseName";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 1;
 
     // Table name
     private static final String TABLE_COURSE = "Course";
@@ -69,6 +69,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Handle database upgrades if needed
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_COURSE);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_SCHEDULE);
+        onCreate(db);
     }
 
     // Function to add a course
@@ -201,6 +204,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return isUpdated;
     }
+//updateCourse function
+   /* public boolean updateCourse(Course course)
+
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_DAY_OF_WEEK, course.getDayOfWeek());
+        values.put(KEY_TIME_OF_COURSE, course.getTimeOfCourse());
+        values.put(KEY_CAPACITY, course.getCapacity());
+        values.put(KEY_DURATION, course.getDuration());
+        values.put(KEY_PRICE_PER_CLASS, course.getPricePerClass());
+        values.put(KEY_TYPE_OF_CLASS, course.getTypeOfClass());
+        values.put(KEY_DESCRIPTION, course.getDescription());
+
+        long result = db.update(TABLE_COURSE, values, KEY_COURSE_ID + " = ?", new String[]{String.valueOf(course.getCourseId())});
+
+        boolean isUpdated = result > 0;
+        db.close();
+        return isUpdated;
+    }
+*/
 
     // Function to add a class schedule
     public void addClassSchedule(ClassSchedule classSchedule, Context context) {
@@ -296,6 +320,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             cursor = db.rawQuery(query, null);
         }
         return cursor;
+    }
+    //for deleting data from schedule table
+    public void deleteData(String row_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_SCHEDULE, KEY_SCHEDULE_ID + " = ?", new String[]{row_id});
+
+        if (result > 0) {
+            // Deletion successful
+            Log.d("DatabaseHelper", "Data deleted successfully");
+        } else {
+            // Deletion failed
+            Log.e("DatabaseHelper", "Failed to delete data");
+        }
+
+        db.close();
     }
 
     public Cursor readCourses(){

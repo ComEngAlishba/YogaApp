@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -58,7 +57,6 @@ public class ClassInstance extends AppCompatActivity {
             courseBox.setAdapter(adapter);
             courseBox.setSelection(0);
         }
-
         selectDate.setOnClickListener(v -> {
             DatePickerDialog dialog = new DatePickerDialog(ClassInstance.this, (view, year1, month1, dayOfMonth) -> {
                 month1 = month1 + 1;
@@ -73,32 +71,8 @@ public class ClassInstance extends AppCompatActivity {
         addSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String scheduleDate = selectDate.getText().toString().trim();
-                String teacherName = scheduleTeacher.getText().toString().trim();
-                String courseName = courseBox.getSelectedItem().toString();
-                String additionalComments = comment.getText().toString().trim();
+                addToDb();
 
-                boolean check = validateInfo(scheduleDate, teacherName, additionalComments);
-
-                if (check) {
-                    addToDb();
-                    Toast.makeText(ClassInstance.this, "Data added Successfully", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(ClassInstance.this, "Sorry, Check the Information", Toast.LENGTH_SHORT).show();
-                }
-            }
-            private Boolean validateInfo(String scheduleDate, String teacherName, String additionalComments) {
-                if (scheduleDate.length() == 0) {
-                    selectDate.requestFocus();
-                    selectDate.setError("Please provide date of the class");
-                    return false;
-                } else if (teacherName.length() == 0) {
-                    scheduleTeacher.requestFocus();
-                    scheduleTeacher.setError("Please provide teacher of the class");
-                    return false;
-                } else {
-                    return true;
-                }
             }
         });
     }
