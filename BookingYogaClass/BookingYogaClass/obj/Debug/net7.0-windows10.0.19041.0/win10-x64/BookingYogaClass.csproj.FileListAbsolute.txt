@@ -358,6 +358,7 @@ C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\bin\
 C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\BookingYogaClass.pdb
 C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.pri
 C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml
+C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Blazored.Toast.dll
 C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.AspNetCore.Authorization.dll
 C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.AspNetCore.Components.dll
 C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.AspNetCore.Components.Forms.dll

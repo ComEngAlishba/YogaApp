@@ -22,9 +22,6 @@ namespace BookingYogaClass
 		builder.Services.AddBlazorWebViewDeveloperTools();
 		builder.Logging.AddDebug();
 #endif
-
-            builder.Services.AddSingleton<WeatherForecastService>();
-
             return builder.Build();
         }
     }

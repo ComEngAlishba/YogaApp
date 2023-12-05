@@ -1,6 +1,7 @@
 C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\bin\Debug\net7.0-ios\iossimulator-x64\BookingYogaClass.runtimeconfig.json
 C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\bin\Debug\net7.0-ios\iossimulator-x64\BookingYogaClass.dll
 C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\bin\Debug\net7.0-ios\iossimulator-x64\BookingYogaClass.pdb
+C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\bin\Debug\net7.0-ios\iossimulator-x64\Blazored.Toast.dll
 C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\bin\Debug\net7.0-ios\iossimulator-x64\Microsoft.AspNetCore.Authorization.dll
 C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\bin\Debug\net7.0-ios\iossimulator-x64\Microsoft.AspNetCore.Components.dll
 C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\bin\Debug\net7.0-ios\iossimulator-x64\Microsoft.AspNetCore.Components.Forms.dll

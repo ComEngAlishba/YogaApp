@@ -607,6 +607,9 @@
     <AppxPackagedFile Include="C:\Users\Alishba\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.29\lib\net6.0\WinRT.Runtime.dll">
       <PackagePath>WinRT.Runtime.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alishba\.nuget\packages\blazored.toast\4.1.0\lib\net7.0\Blazored.Toast.dll">
+      <PackagePath>Blazored.Toast.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alishba\.nuget\packages\microsoft.aspnetcore.authorization\7.0.11\lib\net7.0\Microsoft.AspNetCore.Authorization.dll">
       <PackagePath>Microsoft.AspNetCore.Authorization.dll</PackagePath>
     </AppxPackagedFile>
@@ -756,6 +759,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alishba\.nuget\packages\blazored.toast\4.1.0\staticwebassets\Blazored.Toast.bundle.scp.css">
+      <PackagePath>wwwroot\_content\Blazored.Toast\Blazored.Toast.bundle.scp.css</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\scopedcss\bundle\BookingYogaClass.styles.css">
       <PackagePath>wwwroot\BookingYogaClass.styles.css</PackagePath>

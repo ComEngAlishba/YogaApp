@@ -55,7 +55,6 @@
             <tr>
                 <th>Select</th>
                 <th>Day/Date/Time</th>
-                <th>Course Name</th>
                 <th>Teacher</th>
             </tr>
         </thead>
@@ -77,7 +76,6 @@
                         @schedule.Date<br>
                         @schedule.Time
                     </td>
-                    <td>@schedule.CourseName</td>
                     <td>@schedule.Teacher</td>
                 </tr>
             }
@@ -104,16 +102,16 @@
         // Initialize with dummy data
         AllSchedules = new List<CourseSchedule>
         {
-            new CourseSchedule { InstanceId = 1, DayOfWeek = "Monday", Date = "12/04/2023", Time = "10:00 AM", CourseName = "Yoga Basics", Teacher = "John Doe" },
-            new CourseSchedule { InstanceId = 2, DayOfWeek = "Tuesday", Date = "12/05/2023", Time = "11:00 AM", CourseName = "Power Yoga", Teacher = "Jane Smith" },
-            new CourseSchedule { InstanceId = 3, DayOfWeek = "Wednesday", Date = "12/06/2023", Time = "10:30 AM", CourseName = "Hatha Yoga", Teacher = "Bob Johnson" },
-            new CourseSchedule { InstanceId = 4, DayOfWeek = "Thursday", Date = "12/07/2023", Time = "09:00 AM", CourseName = "Vinyasa Flow", Teacher = "Alice Williams" },
-            new CourseSchedule { InstanceId = 5, DayOfWeek = "Friday", Date = "12/08/2023", Time = "02:00 PM", CourseName = "Restorative Yoga", Teacher = "Charlie Brown" },
-            new CourseSchedule { InstanceId = 6, DayOfWeek = "Saturday", Date = "12/09/2023", Time = "01:30 PM", CourseName = "Aerial Yoga", Teacher = "Eva Davis" },
-            new CourseSchedule { InstanceId = 7, DayOfWeek = "Sunday", Date = "12/10/2023", Time = "03:00 PM", CourseName = "Meditation", Teacher = "David Miller" },
-            new CourseSchedule { InstanceId = 8, DayOfWeek = "Monday", Date = "12/11/2023", Time = "09:30 AM", CourseName = "Yin Yoga", Teacher = "Grace Robinson" },
-            new CourseSchedule { InstanceId = 9, DayOfWeek = "Tuesday", Date = "12/12/2023", Time = "12:00 PM", CourseName = "Kundalini Yoga", Teacher = "Frank White" },
-            new CourseSchedule { InstanceId = 10, DayOfWeek = "Wednesday", Date = "12/13/2023", Time = "11:30 AM", CourseName = "Gentle Yoga", Teacher = "Sophie Moore" }
+            new CourseSchedule { InstanceId = 1, DayOfWeek = "Monday", Date = "12/04/2023", Time = "10:00 AM",  Teacher = "John Doe" },
+            new CourseSchedule { InstanceId = 2, DayOfWeek = "Tuesday", Date = "12/05/2023", Time = "11:00 AM", Teacher = "Jane Smith" },
+            new CourseSchedule { InstanceId = 3, DayOfWeek = "Wednesday", Date = "12/06/2023", Time = "10:30 AM",  Teacher = "Bob Johnson" },
+            new CourseSchedule { InstanceId = 4, DayOfWeek = "Thursday", Date = "12/07/2023", Time = "09:00 AM", Teacher = "Alice Williams" },
+            new CourseSchedule { InstanceId = 5, DayOfWeek = "Friday", Date = "12/08/2023", Time = "02:00 PM", Teacher = "Charlie Brown" },
+            new CourseSchedule { InstanceId = 6, DayOfWeek = "Saturday", Date = "12/09/2023", Time = "01:30 PM",  Teacher = "Eva Davis" },
+            new CourseSchedule { InstanceId = 7, DayOfWeek = "Sunday", Date = "12/10/2023", Time = "03:00 PM",  Teacher = "David Miller" },
+            new CourseSchedule { InstanceId = 8, DayOfWeek = "Monday", Date = "12/11/2023", Time = "09:30 AM",  Teacher = "Grace Robinson" },
+            new CourseSchedule { InstanceId = 9, DayOfWeek = "Tuesday", Date = "12/12/2023", Time = "12:00 PM", Teacher = "Frank White" },
+            new CourseSchedule { InstanceId = 10, DayOfWeek = "Wednesday", Date = "12/13/2023", Time = "11:30 AM",  Teacher = "Sophie Moore" }
          };
         FilteredSchedules = AllSchedules;
     }
@@ -122,7 +120,7 @@
     {
         // Apply filters based on selectedDayOfWeek and selectedDate
         var filteredSchedules = AllSchedules;
-        if (!string.IsNullOrEmpty(selectedDayOfWeek) && selectedDayOfWeek == "All")
+        if (!string.IsNullOrEmpty(selectedDayOfWeek) && selectedDayOfWeek != "All")
         {
             filteredSchedules = filteredSchedules.Where(s => s.DayOfWeek == selectedDayOfWeek).ToList();
         }
@@ -151,15 +149,5 @@
     private void BookClasses()
     {
         
-    }
-    public class CourseSchedule
-    {
-        public int InstanceId { get; set; }
-        public string DayOfWeek { get; set; }
-        public string Date { get; set; }
-        public string Time { get; set; }
-        public string CourseName { get; set; }
-        public string Teacher { get; set; }
-        public bool Selected { get; set; }
     }
 }
