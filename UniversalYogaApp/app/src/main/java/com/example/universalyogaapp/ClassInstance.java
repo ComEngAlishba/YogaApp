@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -71,6 +72,13 @@ public class ClassInstance extends AppCompatActivity {
         addSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (scheduleTeacher.getText().toString().trim().isEmpty()) {
+                    Toast.makeText(ClassInstance.this, "Please enter teacher name", Toast.LENGTH_SHORT).show();
+                    return;
+                } else if (selectDate.getText().toString().trim().isEmpty()) {
+                    Toast.makeText(ClassInstance.this, "Please select a date", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 addToDb();// function is called
 
             }
