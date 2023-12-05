@@ -1,22 +1,33 @@
-﻿@page "/"
+﻿<!-- SignIn.razor -->
+<!-- Define the route for this component -->
+@page "/"
+
+<!-- Inject the NavigationManager for navigation -->
 @inject NavigationManager Navigation
+
+<!-- Main content container -->
 <div class="content-container">
     <h1>Welcome to the Yoga Class Booking App</h1>
     <p>Book your favorite yoga classes and start your journey to a healthier lifestyle.</p>
 
+    <!-- Button container for sign-in form -->
     <div class="button-container">
         <div class="container">
             <div class="row ">
                 <div class="col-md-6 offset-md-3">
+                    <!-- Sign-in form -->
                     <form>
+                        <!-- Username input -->
                         <div class="mb-3">
                             <label for="username" class="form-label">Username</label>
                             <input type="text" class="form-control" id="username" @bind="username" />
                         </div>
+                        <!-- Email input -->
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="email" @bind="email" />
                         </div>
+                        <!-- Sign-in button -->
                         <div class="text-center">
                             <button type="button" class="btn align-middle" style="background-color:cornflowerblue;color:white" @onclick="SignIn">Login</button>
                         </div>
@@ -28,26 +39,34 @@
 </div>
 
 @code {
+    // Variables to store username and email
     private string username;
     private string email;
+
+    // Inject the IToastService for displaying toast messages
     [Inject]
     IToastService ToastService { get; set; }
 
+    // Method triggered when the sign-in button is clicked
     public void SignIn()
     {
-        if(String.IsNullOrEmpty(username))
+        // Check if the username is empty
+        if (String.IsNullOrEmpty(username))
         {
+            // Show an error toast message
             ToastService.ShowError("Please Enter Username!");
         }
+        // Check if the email is empty
         else if (String.IsNullOrEmpty(email))
         {
+            // Show an error toast message
             ToastService.ShowError("Please Enter Email!");
         }
         else
         {
             // Add your login logic here
             // For example, navigate to another page after login
-            Navigation.NavigateTo("/book-classes/" + username + "/" + email);
+            Navigation.NavigateTo("/menu/" + username + "/" + email);
         }
     }
 }

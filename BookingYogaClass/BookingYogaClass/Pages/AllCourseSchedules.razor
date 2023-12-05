@@ -1,94 +1,111 @@
 ﻿<!-- BookClasses.razor -->
-@page "/book-classes/{username}/{email}"
-<div class="row">
-    <div class="col-8">
-        <h3>Classes Schedules</h3>
-    </div>
-    <div class="col-4 mb-3">
-        <button class="btn no-print btn-primary font-weight-bold w-100" style="justify-content: center;font-size:18px; height: 40px" @onclick="() => BookClasses()">
-            Book
-            <div class="dotBlack align-middle mb-1" style="justify-content:center;font-size:14px"> @AddToCartCount</div>
-        </button>
-    </div>
-</div>
-<div class="container">
-    <div class="row mb-3">
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-2">
-                    <label for="dayOfWeekFilter" style="font-size:16px;" class=" form-label mt-2" >Day:</label>
-                </div>
-                <div class="col-6">
-                    <select class="form-control" id="dayOfWeekFilter" @bind="selectedDayOfWeek">
-                        <option value="">All</option>
-                        <option value="Monday">Monday</option>
-                        <option value="Tuesday">Tuesday</option>
-                        <option value="Wednesday">Wednesday</option>
-                        <option value="Thursday">Thursday</option>
-                        <option value="Friday">Friday</option>
-                        <option value="Saturday">Saturday</option>
-                        <option value="Sunday">Sunday</option>
-                    </select>
-                </div>
-                <div class="col-4">
-                    <button class="btn " style="font-size:16px;background-color:darkgray" @onclick="GetFilteredSchedulesByDay">Filter <i class="fa fa-filter"></i></button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-2">
-                    <label for="dateFilter" style="font-size:16px;" class=" form-label mt-2">Date:</label>
-                </div>
-                <div class="col-6">
-                    <input type="date" class="form-control" id="dateFilter" @bind-value="selectedDate" />
-                </div>
-                <div class="col-4">
-                    <button class="btn" style="font-size:16px;background-color:darkgray" @onclick="GetFilteredSchedulesByDate">Filter <i class="fa fa-filter"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Select</th>
-                <th>Day/Date/Time</th>
-                <th>Teacher</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var schedule in FilteredSchedules)
+@page "/bookClasses/{username}/{email}/{edit}"
+@if (edit == "yes" && StaticData.CourseSchedules.Count() == 0)
+    {
+    <h3>There are no booked classes. Please go to menu and book classes from these. Thank you!</h3>
+}
+else
+{
+    <div class="row">
+        <div class="col-8">
+            @if (edit == "yes")
             {
-                <tr>
-                    <td>
-                        @if (!schedule.Selected)
-                        {
-                            <button class="btn btn-success float-left m-1" style="font-size:20px" @onclick="() => AddToCart(schedule)"><i class="fa fa-plus"></i></button>
-                        }
-                        else
-                        {
-                            <button class="btn btn-danger float-left m-1" style="font-size:20px" @onclick="() => RemoveFromCart(schedule)"><i class="fa fa-close"></i></button>
-                        }
-                    </td>
-                    <td>@schedule.DayOfWeek<br>
-                        @schedule.Date<br>
-                        @schedule.Time
-                    </td>
-                    <td>@schedule.Teacher</td>
-                </tr>
+                <h3>Edit Classes Schedules</h3>
             }
-        </tbody>
-    </table>
+            else
+            {
+                <h3>Add Classes Schedules</h3>
+            }
+        </div>
+        <div class="col-4 mb-3">
+            <button class="btn no-print btn-primary font-weight-bold w-100" style="justify-content: center;font-size:18px; height: 40px" @onclick="() => BookClasses()">
+                Book
+                <div class="dotBlack align-middle mb-1" style="justify-content:center;font-size:14px"> @AddToCartCount</div>
+            </button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-2">
+                        <label for="dayOfWeekFilter" style="font-size:16px;" class=" form-label mt-2">Day:</label>
+                    </div>
+                    <div class="col-6">
+                        <select class="form-control" id="dayOfWeekFilter" @bind="selectedDayOfWeek">
+                            <option value="">All</option>
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                            <option value="Sunday">Sunday</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <button class="btn " style="font-size:16px;background-color:darkgray" @onclick="GetFilteredSchedulesByDay">Filter <i class="fa fa-filter"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-2">
+                        <label for="dateFilter" style="font-size:16px;" class=" form-label mt-2">Date:</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="date" class="form-control" id="dateFilter" @bind-value="selectedDate" />
+                    </div>
+                    <div class="col-4">
+                        <button class="btn" style="font-size:16px;background-color:darkgray" @onclick="GetFilteredSchedulesByDate">Filter <i class="fa fa-filter"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-</div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Day/Date/Time</th>
+                    <th>Teacher</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var schedule in FilteredSchedules)
+                {
+                    <tr>
+                        <td>
+                            @if (!schedule.Selected)
+                            {
+                                <button class="btn btn-success float-left m-1" style="font-size:20px" @onclick="() => AddToCart(schedule)"><i class="fa fa-plus"></i></button>
+                            }
+                            else
+                            {
+                                <button class="btn btn-danger float-left m-1" style="font-size:20px" @onclick="() => RemoveFromCart(schedule)"><i class="fa fa-close"></i></button>
+                            }
+                        </td>
+                        <td>
+                            @schedule.DayOfWeek<br>
+                            @schedule.Date<br>
+                            @schedule.Time
+                        </td>
+                        <td>@schedule.Teacher</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+}
 
 @code {
     [Parameter]
     public string username { get; set; }
     [Parameter]
     public string email { get; set; }
+    [Parameter]
+    public string edit { get; set; }
 
     [Inject]
     IToastService ToastService { get; set; }
@@ -119,12 +136,22 @@
             new CourseSchedule { InstanceId = 10, DayOfWeek = "Wednesday", Date = "12/13/2023", Time = "11:30 AM",  Teacher = "Sophie Moore" }
          };
         FilteredSchedules = AllSchedules;
-        FilteredSchedules = CourseScheduleService.GetListOfAvailableClassesFromWeb();
+        //FilteredSchedules = CourseScheduleService.GetListOfAvailableClassesFromWeb();
+        if (edit == "yes")
+        {
+            for(int i = 0; i <FilteredSchedules.Count; i++)
+            {
+                if(StaticData.CourseSchedules.Contains(FilteredSchedules[i]))
+                {
+                    FilteredSchedules[i].Selected = true;
+                }
+            }
+        }
     }
 
     private void GetFilteredSchedulesByDay()
     {
-        // Apply filters based on selectedDayOfWeek and selectedDate
+        // Apply filters based on selectedDayOfWeek and if user selected All, then all schedules will be shown
         var filteredSchedules = AllSchedules;
         if (!string.IsNullOrEmpty(selectedDayOfWeek) && selectedDayOfWeek != "All")
         {
@@ -134,39 +161,46 @@
     }
     private void GetFilteredSchedulesByDate()
     {
-        // Apply filters based on selectedDayOfWeek and selectedDate
+        // Apply filters based on selectedDate
         var filteredSchedules = AllSchedules;
         filteredSchedules = filteredSchedules.Where(s => s.Date == selectedDate.ToString("MM/dd/yyyy")).ToList();
         FilteredSchedules = filteredSchedules;
     }
 
+    // Add Classes to Cart
     private void AddToCart(CourseSchedule course)
     {
         var index = FilteredSchedules.FindIndex(x => x.InstanceId == course.InstanceId);
         FilteredSchedules[index].Selected = true;
+        // Add to cart courses are only those that are selected
         AddToCartCount = FilteredSchedules.Where(x => x.Selected).Count();
     }
+
+    //Remove classes from the Cart 
     private void RemoveFromCart(CourseSchedule course)
     {
         var index = FilteredSchedules.FindIndex(x => x.InstanceId == course.InstanceId);
         FilteredSchedules[index].Selected = false;
+        // Add to cart courses are only those that are selected
         AddToCartCount = FilteredSchedules.Where(x => x.Selected).Count();
     }
+
+    // Book Classes that are in cart
     private async void BookClasses()
     {
         BookedClassesDetails obj = new BookedClassesDetails();
         obj.Username = username;
         obj.Email = email;
-        obj.CourseSchedules = CourseScheduleService.ConvertCourseSchedulesToClassSchedules(FilteredSchedules.Where(x => x.Selected).ToList());
-        RestClient client = new RestClient();
+        StaticData.CourseSchedules = FilteredSchedules.Where(x => x.Selected).ToList();
+        obj.CourseSchedules = CourseScheduleService.ConvertCourseSchedulesToClassSchedules(StaticData.CourseSchedules);
+        ToastService.ShowSuccess("Classes have been booked successfully!");
+        // RestClientService client = new RestClientService();
 
-        await client.SendEventAsync(obj);
+        //await client.SendEventAsync(obj);
 
-        BookingClassResponse response = client.BookingClassResponse;
+        //BookingClassResponse response = client.BookingClassResponse;
 
-        ToastService.ShowSuccess(string.Format("{0} - {1} - {2}",
-               response.UploadResponseMessage, response.Username,
-               response.Email));
+        //ToastService.ShowSuccess(string.Format("{0} - {1} - {2}", response.UploadResponseMessage, response.Username, response.Email));
 
     }
 }

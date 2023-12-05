@@ -1,0 +1,51 @@
+﻿<!-- Menu.razor -->
+<!-- Define the route for this component with parameters -->
+@page "/menu/{username}/{email}"
+
+<!-- Inject the NavigationManager for navigation -->
+@inject NavigationManager Navigation
+
+<!-- Main content container -->
+<div class="content-container">
+    <h1>Welcome to the Yoga Class Booking App</h1>
+    <p>Book your favorite yoga classes and start your journey to a healthier lifestyle.</p>
+
+    <!-- Button container for menu options -->
+    <div class="button-container">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-6 offset-md-3">
+                    <!-- Menu options form -->
+                    <form>
+                        <!-- Book Classes button -->
+                        <div class="text-center m-2">
+                            <button type="button" class="btn btn-danger w-100" @onclick="@(() => GoToPage("/bookClasses/" + username + "/" + email + "/no"))">Book Classes</button>
+                        </div>
+                        <!-- Show Booked Classes button -->
+                        <div class="text-center m-2">
+                            <button type="button" class="btn btn-success w-100" @onclick="@(() => GoToPage("/showAllBookedClasses"))">Show Booked Classes</button>
+                        </div>
+                        <!-- Edit Booked Classes button -->
+                        <div class="text-center m-2">
+                            <button type="button" class="btn btn-primary w-100" @onclick="@(() => GoToPage("/bookClasses/" + username + "/" + email + "/yes"))">Edit Booked Classes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    // Parameters for username and email obtained from the route
+    [Parameter]
+    public string username { get; set; }
+    [Parameter]
+    public string email { get; set; }
+
+    // Method to navigate to a specified page
+    public void GoToPage(string url)
+    {
+        Navigation.NavigateTo(url);
+    }
+}

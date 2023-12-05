@@ -1,0 +1,68 @@
+﻿<!-- ShowAllBookedClasses.razor -->
+<!-- Define the route for this component -->
+@page "/showAllBookedClasses"
+
+<!-- Main content container -->
+<div class="text-center">
+    <!-- Header -->
+    <h2>Your Booked Classes</h2>
+</div>
+
+<div class="container">
+    <!-- Check if there are no booked classes -->
+    @if (StaticData.CourseSchedules.Count() == 0)
+    {
+        <!-- Display a message if there are no booked classes -->
+        <h3>There are no booked classes. Please go to the menu and book classes from there. Thank you!</h3>
+    }
+    else
+    {
+        <!-- Display a table of booked classes if there are any -->
+        <table class="table">
+            <thead style="background-color: black;color:white">
+                <!-- Table headers -->
+                <tr>
+                    <th>Day</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Teacher</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Iterate through each booked schedule and display in the table -->
+                @foreach (var schedule in BookedSchedules)
+                {
+                    <tr>
+                        <!-- Table rows with class schedule information -->
+                        <td>
+                            @schedule.DayOfWeek
+                        </td>
+                        <td>
+                            @schedule.Date
+                        </td>
+                        <td>
+                            @schedule.Time
+                        </td>
+                        <td>@schedule.Teacher</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+@code {
+    // Property to store the list of booked schedules
+    private List<CourseSchedule> BookedSchedules { get; set; } = new List<CourseSchedule>();
+
+    // Method called when the component is initialized
+    protected override void OnInitialized()
+    {
+        // Check if there are booked schedules in the StaticData
+        if (StaticData.CourseSchedules.Count() > 0)
+        {
+            // Assign booked schedules to the property
+            BookedSchedules = StaticData.CourseSchedules;
+        }
+    }
+}

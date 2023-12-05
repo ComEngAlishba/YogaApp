@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+// Class to book class into web service
 namespace BookingYogaClass.Data.ViewModels
 {
     public class BookedClassesDetails

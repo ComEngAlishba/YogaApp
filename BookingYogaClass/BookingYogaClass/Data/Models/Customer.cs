@@ -15,12 +15,13 @@ namespace BookingYogaClass.Data.Models
         public string Email { get; set; }
         public string Password { get; set; }
         // Constructor with parameters
-        public Customer(int customerId, string firstName, string lastName, string email)
+        public Customer(int customerId, string firstName, string lastName, string email, string password)
         {
             CustomerId = customerId;
             FirstName = firstName;
             LastName = lastName;
             Email = email;
+            Password = password;
         }
 
         // Function to convert Customer object to JSON
