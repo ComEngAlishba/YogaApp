@@ -12,6 +12,9 @@ import android.view.View;
 
 public class HomePage extends AppCompatActivity {
 
+    /**
+     * Declare the CardView elements for adding and viewing courses and schedules.
+     */
     public CardView addCourse, addSchedule, viewCourse, viewSchedule;
     @SuppressLint("MissingInflatedId")
     @Override

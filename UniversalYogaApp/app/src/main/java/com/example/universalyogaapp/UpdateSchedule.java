@@ -43,7 +43,8 @@ public class UpdateSchedule extends AppCompatActivity {
         DeleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialogBox();
+
+                dialogBox(); //called this function
             }
 
         });
@@ -53,31 +54,38 @@ public class UpdateSchedule extends AppCompatActivity {
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // Get the updated information from the input fields
                 String newDate = date.getText().toString();
                 String newTeacherName = teacherName.getText().toString();
                 String newCourseName = courseName.getSelectedItem().toString();
                 String newComment = comment.getText().toString();
 
+                // Create a DatabaseHelper instance to access the database
                 DatabaseHelper dbHelper = new DatabaseHelper(UpdateSchedule.this);
+                // Call the updateClassSchedule method to update the schedule in the database
                 boolean isUpdated = dbHelper.updateClassSchedule(id, newDate, newTeacherName, newCourseName, newComment);
 
+                // Check if the update was successful
                 if (isUpdated) {
+                    // Display a toast message indicating successful update
                     Toast.makeText(UpdateSchedule.this, "Schedule updated successfully", Toast.LENGTH_SHORT).show();
                 } else {
+                    // Display a toast message indicating failed update
                     Toast.makeText(UpdateSchedule.this, "Failed to update schedule", Toast.LENGTH_SHORT).show();
                 }
 
+                // Create an intent to navigate back to the Schedule activity
                 Intent intent = new Intent(UpdateSchedule.this, Schedule.class);
                 startActivity(intent);
 
-
             }
         });
-        getAndSetIntentData();
+        getAndSetIntentData(); // called this function
     }
 
     void getAndSetIntentData(){
+
+        // Check if the intent contains the required data
         if (getIntent().hasExtra("id") && getIntent().hasExtra("date") && getIntent().hasExtra("teacherName")&& getIntent().hasExtra("courseName") && getIntent().hasExtra("comment")){
             //getting data from intent
             id = getIntent().getStringExtra("id");
@@ -97,14 +105,19 @@ public class UpdateSchedule extends AppCompatActivity {
             comment.setText(update_comment);
 
         }else {
+            // Display a toast message if the intent does not contain the required data
             Toast.makeText(this, "No data present", Toast.LENGTH_SHORT).show();
 
         }
     }
     public void dialogBox(){
+        // Create an alert dialog builder
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        // Set the title of the dialog box
         builder.setTitle("Delete " + update_date + "?");
+        // Set the message of the dialog box
         builder.setMessage("Are you sure you want to delete schedule with " + update_teacherName + "?");
+        // Set the positive button action
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -119,11 +132,14 @@ public class UpdateSchedule extends AppCompatActivity {
 
             }
         });
+        // Set the negative button action
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                // Do nothing if the user clicks the "No" button
             }
         });
+        // Show the dialog box
         builder.create().show();
 
     }

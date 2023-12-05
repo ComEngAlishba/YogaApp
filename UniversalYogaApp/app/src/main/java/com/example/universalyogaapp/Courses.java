@@ -16,23 +16,26 @@ import java.util.ArrayList;
 
 import Models.DatabaseHelper;
 
+// Activity for displaying a list of yoga courses
 public class Courses extends AppCompatActivity {
 
+    // RecyclerView and FloatingActionButton for course display and navigation
     RecyclerView recyclerView;
     FloatingActionButton addFloatButton, exitFloatButton;
-    DatabaseHelper databaseHelper;
-    com.example.universalyogaapp.CourseAdapter courseAdapter;
+    DatabaseHelper databaseHelper; // DatabaseHelper for managing database operations
+    com.example.universalyogaapp.CourseAdapter courseAdapter; // Adapter and data arrays for managing course data in RecyclerView
     ArrayList<String> courseId, selectedDay, selectedTime, selectedType, capacity, duration, price, description;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courses);
 
+        // Initialize RecyclerView, Floating Action Buttons, and DatabaseHelper
         recyclerView = findViewById(R.id.recyclerView);
         addFloatButton = findViewById(R.id.addFloatButton);
         exitFloatButton = findViewById(R.id.exitFloatButton);
 
-        //back button code
+        // Implement back button functionality to return to HomePage
         exitFloatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,6 +44,7 @@ public class Courses extends AppCompatActivity {
             }
         });
 
+        // Implement functionality to navigate to MainActivity on button click
         addFloatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,6 +53,7 @@ public class Courses extends AppCompatActivity {
             }
         });
 
+        // Initialize DatabaseHelper and ArrayLists for storing course data
         databaseHelper = new DatabaseHelper(Courses.this);
         courseId = new ArrayList<>();
         selectedDay = new ArrayList<>();
@@ -59,13 +64,16 @@ public class Courses extends AppCompatActivity {
         selectedType = new ArrayList<>();
         description = new ArrayList<>();
 
+        // Retrieve and display course data
         storeData();
 
+        // Initialize and set up the CourseAdapter for the RecyclerView
         courseAdapter = new com.example.universalyogaapp.CourseAdapter(Courses.this, courseId, selectedDay, selectedTime, capacity, duration, price, selectedType, description );
         recyclerView.setAdapter(courseAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(Courses.this));
     }
 
+    // Method to retrieve and store course data from the database
     void storeData(){
         Cursor cursor = databaseHelper.readCourses();
         if(cursor.getCount() == 0){

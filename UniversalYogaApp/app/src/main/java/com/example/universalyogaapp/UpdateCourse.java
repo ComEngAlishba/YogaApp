@@ -45,7 +45,8 @@ public class UpdateCourse extends AppCompatActivity {
         buttonDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialogBox();
+
+                dialogBox(); // called this function for dialogBox to appear before deletion of data
             }
         });
 
@@ -115,9 +116,14 @@ public class UpdateCourse extends AppCompatActivity {
     }
 
         public void dialogBox(){
+            // Create an alert dialog builder
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            // Set the title of the dialog box
             builder.setTitle("Delete " + yogaType + "?");
+            // Set the message of the dialog box
             builder.setMessage("Are you sure you want to delete ?");
+
+            // Set the positive button action
             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -132,11 +138,14 @@ public class UpdateCourse extends AppCompatActivity {
 
                 }
             });
+            // Set the negative button action
             builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
+                    // Do nothing if the user clicks the "No" button
                 }
             });
+            // Show the dialog box
             builder.create().show();
 
     }
