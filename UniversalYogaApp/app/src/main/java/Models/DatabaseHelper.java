@@ -15,7 +15,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Database information
     private static final String DATABASE_NAME = "YourDatabaseName";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     // Table name
     private static final String TABLE_COURSE = "Course";
@@ -196,6 +196,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_CAPACITY, capacity);
         values.put(KEY_DURATION, duration);
         values.put(KEY_TYPE_OF_CLASS, yogaType);
+        values.put(KEY_PRICE_PER_CLASS, price);
         values.put(KEY_DESCRIPTION, description);
 
         long result = db.update(TABLE_COURSE, values, KEY_COURSE_ID + " = ?", new String[]{id});
