@@ -189,7 +189,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //updating course
     public boolean updateCourse(String id, String day, String time, String capacity, String duration, String price, String yogaType, String description) {
+        // Open a writable database connection
         SQLiteDatabase db = this.getWritableDatabase();
+        // Create a ContentValues object to store the updated course data
         ContentValues values = new ContentValues();
         values.put(KEY_DAY_OF_WEEK, day);
         values.put(KEY_TIME_OF_COURSE, time);
@@ -199,44 +201,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_PRICE_PER_CLASS, price);
         values.put(KEY_DESCRIPTION, description);
 
+        // Update the course record based on the provided ID using the KEY_COURSE_ID
         long result = db.update(TABLE_COURSE, values, KEY_COURSE_ID + " = ?", new String[]{id});
-
+        // Check if the update was successful
         boolean isUpdated = result > 0;
+        // Close the database connection
         db.close();
+        // Return the update status
         return isUpdated;
     }
-//updateCourse function
-   /* public boolean updateCourse(Course course)
 
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(KEY_DAY_OF_WEEK, course.getDayOfWeek());
-        values.put(KEY_TIME_OF_COURSE, course.getTimeOfCourse());
-        values.put(KEY_CAPACITY, course.getCapacity());
-        values.put(KEY_DURATION, course.getDuration());
-        values.put(KEY_PRICE_PER_CLASS, course.getPricePerClass());
-        values.put(KEY_TYPE_OF_CLASS, course.getTypeOfClass());
-        values.put(KEY_DESCRIPTION, course.getDescription());
-
-        long result = db.update(TABLE_COURSE, values, KEY_COURSE_ID + " = ?", new String[]{String.valueOf(course.getCourseId())});
-
-        boolean isUpdated = result > 0;
-        db.close();
-        return isUpdated;
-    }
-*/
 
     // Function to add a class schedule
     public void addClassSchedule(ClassSchedule classSchedule, Context context) {
+        // Get a writable database instance to access the database
         SQLiteDatabase db = this.getWritableDatabase();
 
+        // Create a ContentValues object to store the class schedule data
         ContentValues values = new ContentValues();
         values.put(KEY_SCHEDULE_DATE, classSchedule.getDate());
         values.put(KEY_SCHEDULE_TEACHER_NAME, classSchedule.getTeacherName());
         values.put(KEY_COURSE_NAME, classSchedule.getCourseName());
         values.put(KEY_SCHEDULE_ADDITIONAL_COMMENTS, classSchedule.getAdditionalComments());
 
+        // Insert the class schedule data into the TABLE_SCHEDULE table
         long result = db.insert(TABLE_SCHEDULE, null, values);
         db.close();
 
@@ -248,19 +236,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    //code trial
+    //code for updating schedule
     public boolean updateClassSchedule(String id, String date, String teacherName, String courseName, String comment) {
+        // Opened a writable database connection
         SQLiteDatabase db = this.getWritableDatabase();
+        // Created a ContentValues object to store the updated class schedule data
         ContentValues values = new ContentValues();
         values.put(KEY_SCHEDULE_DATE, date);
         values.put(KEY_SCHEDULE_TEACHER_NAME, teacherName);
         values.put(KEY_COURSE_NAME, courseName);
         values.put(KEY_SCHEDULE_ADDITIONAL_COMMENTS, comment);
 
+        // Update the class schedule record based on the provided ID using the KEY_SCHEDULE_ID
         long result = db.update(TABLE_SCHEDULE, values, KEY_SCHEDULE_ID + " = ?", new String[]{id});
 
+        // Check if the update was successful
         boolean isUpdated = result > 0;
+        // Close the database connection
         db.close();
+        // Return the update status
         return isUpdated;
     }
 

@@ -71,14 +71,14 @@ public class ClassInstance extends AppCompatActivity {
         addSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addToDb();
+                addToDb();// function is called
 
             }
         });
     }
     private void addToDb(){
-        // Capture user input from UI
 
+        // Capture user input from UI
         String scheduleDate = selectDate.getText().toString().trim();
         String teacherName = scheduleTeacher.getText().toString().trim();
         String courseName = courseBox.getSelectedItem().toString();
@@ -86,7 +86,6 @@ public class ClassInstance extends AppCompatActivity {
 
         // Create a ClassSchedule object
         ClassSchedule classSchedule = new ClassSchedule();
-        //classSchedule.setCourseId(courseId);
         classSchedule.setDate(scheduleDate);
         classSchedule.setTeacherName(teacherName);
         classSchedule.setCourseName(courseName);

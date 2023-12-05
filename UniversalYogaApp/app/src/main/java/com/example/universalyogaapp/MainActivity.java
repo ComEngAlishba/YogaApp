@@ -16,6 +16,8 @@ import Models.Course;
 import Models.DatabaseHelper;
 
 
+// Main activity for adding new yoga courses
+
 public class MainActivity extends AppCompatActivity {
 
     //All buttons
@@ -23,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
     // All required text fields
     Spinner spDays, spTime, spType;
     EditText  etCapacity, etDuration, etPrice,etDescription;
-    DatabaseHelper dbHelper;
+
+    DatabaseHelper dbHelper;// DatabaseHelper for managing database operations
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,17 +68,20 @@ public class MainActivity extends AppCompatActivity {
         spType.setAdapter(adapter2);
 
 
-        // handle the PROCEED button
+        // adding setOnClick listener for bAdd to add the course on database
         bAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Capture user input from UI
                 String capacity = etCapacity.getText().toString();
                 String duration = etDuration.getText().toString();
                 String price = etPrice.getText().toString();
                 String description = etDescription.getText().toString();
 
+                // Validate user input
                 boolean check = validateInfo(capacity, duration, price, description);
 
+                // If validation is successful, add the course to the database
                 if (check) {
                     addCourses();
                     Toast.makeText(MainActivity.this, "Data added Successfully", Toast.LENGTH_SHORT).show();
@@ -84,7 +90,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
+            //for the validation of textfields
             private Boolean validateInfo(String capacity, String duration, String price, String description) {
+                // Validation logic for each field
                 if (capacity.length() == 0) {
                     etCapacity.requestFocus();
                     etCapacity.setError("Please provide capacity of the class");
@@ -104,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // Method to add a new course to the database
     public void addCourses() {
         // Capture user input from UI
         String selectedDay = spDays.getSelectedItem().toString();
@@ -117,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
         // Create a course object
         Course course = new Course();
 
+        // Set course details
         course.setDayOfWeek(selectedDay);
         course.setTimeOfCourse(selectedTime);
         course.setCapacity(Integer.parseInt(capacity));
@@ -126,7 +136,6 @@ public class MainActivity extends AppCompatActivity {
         course.setDescription(description);
 
         // Call the method to add data to the database
-        // dbHelper.addCourse(course, this);
         DatabaseHelper dbHelper = new DatabaseHelper(this);
         dbHelper.addCourse(course, this);
 
