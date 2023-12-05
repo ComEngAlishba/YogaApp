@@ -94,6 +94,8 @@
     private int AddToCartCount { get; set; }
     [Inject]
     IToastService ToastService { get; set; }
+    [Inject]
+    CourseScheduleService CourseScheduleService { get; set; }
     private string selectedDayOfWeek = DateTime.Now.DayOfWeek.ToString();
     private DateTime selectedDate = DateTime.Now;
 
@@ -102,6 +104,7 @@
         // Initialize with dummy data
         AllSchedules = new List<CourseSchedule>
         {
+
             new CourseSchedule { InstanceId = 1, DayOfWeek = "Monday", Date = "12/04/2023", Time = "10:00 AM",  Teacher = "John Doe" },
             new CourseSchedule { InstanceId = 2, DayOfWeek = "Tuesday", Date = "12/05/2023", Time = "11:00 AM", Teacher = "Jane Smith" },
             new CourseSchedule { InstanceId = 3, DayOfWeek = "Wednesday", Date = "12/06/2023", Time = "10:30 AM",  Teacher = "Bob Johnson" },
@@ -114,6 +117,7 @@
             new CourseSchedule { InstanceId = 10, DayOfWeek = "Wednesday", Date = "12/13/2023", Time = "11:30 AM",  Teacher = "Sophie Moore" }
          };
         FilteredSchedules = AllSchedules;
+        FilteredSchedules = CourseScheduleService.GetListOfAvailableClassesFromWeb();
     }
 
     private void GetFilteredSchedulesByDay()
