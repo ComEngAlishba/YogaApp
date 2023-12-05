@@ -14,6 +14,16 @@ namespace BookingYogaClass.Services
         HttpClient _client;
         JsonSerializerOptions _serializerOptions;
 
+        public RestClient()
+        {
+            _client = new HttpClient();
+            _serializerOptions = new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                WriteIndented = true
+            };
+        }
+
         public BookingClassResponse BookingClassResponse { get; private set; }
 
         private string RestGetAllInstancesUrl =
@@ -51,6 +61,36 @@ namespace BookingYogaClass.Services
             return InstancesResponse;
         }
 
+        public async Task<BookingClassResponse> SendEventAsync(BookedClassesDetails item)
+        {
+            Uri uri = new Uri(string.Format(RestSubmitBookingsUrl, string.Empty));
 
+            try
+            {
+                string json = JsonSerializer.Serialize<BookedClassesDetails>(item,
+                  _serializerOptions);
+
+
+                StringContent content = new StringContent("jsonpayload=" +
+                  json, Encoding.UTF8, "application/x-www-form-urlencoded");
+                HttpResponseMessage response = null;
+                response = await _client.PostAsync(uri, content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string responseContent = await
+                        response.Content.ReadAsStringAsync();
+                    BookingClassResponse =
+                        JsonSerializer.Deserialize<BookingClassResponse>(
+                        responseContent, _serializerOptions);
+                }
+            }
+            catch (Exception ex)
+            { Debug.WriteLine(@"\tERROR {0}", ex.Message); }
+
+            return BookingClassResponse;
+
+        }
     }
+    
 }
