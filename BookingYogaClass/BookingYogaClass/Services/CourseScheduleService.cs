@@ -1,4 +1,5 @@
-﻿using BookingYogaClass.Data.ViewModels;
+﻿using BookingYogaClass.Data.Models;
+using BookingYogaClass.Data.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,40 @@ namespace BookingYogaClass.Services
             RestClient client = new RestClient();
             var jsonList = client.GetAsync();
             return ConvertJsonToCourseScheduleList(jsonList.Result);
+        }
+        public List<ClassSchedule> ConvertCourseSchedulesToClassSchedules(List<CourseSchedule> courseSchedules)
+        {
+            List<ClassSchedule> classSchedules = new List<ClassSchedule>();
+
+            foreach (CourseSchedule courseSchedule in courseSchedules)
+            {
+                ClassSchedule classSchedule = ConvertCourseScheduleToClassSchedule(courseSchedule);
+                if (classSchedule != null)
+                {
+                    classSchedules.Add(classSchedule);
+                }
+            }
+
+            return classSchedules;
+        }
+
+        public ClassSchedule ConvertCourseScheduleToClassSchedule(CourseSchedule courseSchedule)
+        {
+            if (courseSchedule == null)
+            {
+                return null;
+            }
+
+            ClassSchedule classSchedule = new ClassSchedule
+            {
+                InstanceId = courseSchedule.InstanceId,
+                Date = courseSchedule.Date,
+                Teacher = courseSchedule.Teacher,
+                DayOfWeek = courseSchedule.DayOfWeek,
+                TimeOfCourse = courseSchedule.Time
+            };
+
+            return classSchedule;
         }
     }
 }

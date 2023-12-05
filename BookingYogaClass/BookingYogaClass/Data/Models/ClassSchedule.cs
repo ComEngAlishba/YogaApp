@@ -8,10 +8,10 @@ namespace BookingYogaClass.Data.Models
 {
     public class ClassSchedule
     {
-        public int ScheduleId { get; set; }
+        public int InstanceId { get; set; }
         public string DayOfWeek { get; set; }
         public string TimeOfCourse { get; set; }
         public string Date { get; set; }
-        public string TeacherName { get; set; }
+        public string Teacher { get; set; }
     }
 }

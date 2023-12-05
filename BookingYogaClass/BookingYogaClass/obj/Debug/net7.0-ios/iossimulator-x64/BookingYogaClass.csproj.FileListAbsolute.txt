@@ -236,7 +236,6 @@ C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\bin\
 C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\bin\Debug\net7.0-ios\iossimulator-x64\libxamarin-dotnet-debug.dylib
 C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\bin\Debug\net7.0-ios\iossimulator-x64\libxamarin-dotnet.a
 C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\bin\Debug\net7.0-ios\iossimulator-x64\libxamarin-dotnet.dylib
-C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\obj\Debug\net7.0-ios\iossimulator-x64\build-signature\signature
 C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\obj\Debug\net7.0-ios\iossimulator-x64\staticwebassets\msbuild.BookingYogaClass.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\obj\Debug\net7.0-ios\iossimulator-x64\staticwebassets\msbuild.build.BookingYogaClass.props
 C:\Users\Alishba\Documents\GitHub\YogaApp\BookingYogaClass\BookingYogaClass\obj\Debug\net7.0-ios\iossimulator-x64\staticwebassets\msbuild.buildMultiTargeting.BookingYogaClass.props

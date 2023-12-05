@@ -9,7 +9,7 @@ namespace BookingYogaClass.Data.ViewModels
 {
     public class BookingClassResponse
     {
-        public int UploadEventMessag { get; set; }
+        public int UploadResponseMessage { get; set; }
         public string Username { get; set; }
         public string Email { get; set; }
         public List<ClassSchedule> ClassSchedules { get; set; } = new List<ClassSchedule>();

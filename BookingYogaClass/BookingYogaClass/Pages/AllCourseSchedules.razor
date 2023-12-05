@@ -89,13 +89,15 @@
     public string username { get; set; }
     [Parameter]
     public string email { get; set; }
-    private List<CourseSchedule> AllSchedules { get; set; }
-    private List<CourseSchedule> FilteredSchedules { get; set; }
-    private int AddToCartCount { get; set; }
+
     [Inject]
     IToastService ToastService { get; set; }
     [Inject]
     CourseScheduleService CourseScheduleService { get; set; }
+
+    private List<CourseSchedule> AllSchedules { get; set; }
+    private List<CourseSchedule> FilteredSchedules { get; set; }
+    private int AddToCartCount { get; set; }
     private string selectedDayOfWeek = DateTime.Now.DayOfWeek.ToString();
     private DateTime selectedDate = DateTime.Now;
 
@@ -150,8 +152,21 @@
         FilteredSchedules[index].Selected = false;
         AddToCartCount = FilteredSchedules.Where(x => x.Selected).Count();
     }
-    private void BookClasses()
+    private async void BookClasses()
     {
-        
+        BookedClassesDetails obj = new BookedClassesDetails();
+        obj.Username = username;
+        obj.Email = email;
+        obj.CourseSchedules = CourseScheduleService.ConvertCourseSchedulesToClassSchedules(FilteredSchedules.Where(x => x.Selected).ToList());
+        RestClient client = new RestClient();
+
+        await client.SendEventAsync(obj);
+
+        BookingClassResponse response = client.BookingClassResponse;
+
+        ToastService.ShowSuccess(string.Format("{0} - {1} - {2}",
+               response.UploadResponseMessage, response.Username,
+               response.Email));
+
     }
 }
